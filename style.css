@@ -1,0 +1,141 @@
+html {
+  scroll-behavior: smooth;
+}
+body {
+  font-family: "Inter", sans-serif;
+  color: #333;
+}
+/* A.2. Navigasi Aktif */
+.nav-link,
+.nav-link-mobile {
+  color: #0a193a; /* Warna default untuk link navigasi */
+  transition: color 0.3s ease;
+}
+.nav-link:hover,
+.nav-link-mobile:hover {
+  color: #0052cc; /* Warna biru lebih gelap saat hover */
+}
+.nav-link.active {
+  font-weight: 700;
+  color: #0097ff; /* Biru cerah */
+  border-bottom: 3px solid #0097ff;
+}
+.nav-link-mobile.active {
+  font-weight: 700;
+  color: #0097ff; /* Biru cerah */
+  background-color: #f0f8ff;
+}
+
+/* B.1. Hero Background */
+.hero-section {
+  position: relative;
+  background: url("images/COVER WANIGO.jpg") center/cover no-repeat;
+}
+.hero-section::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    135deg,
+    rgba(0, 151, 255, 0.85),
+    rgba(0, 60, 255, 0.75)
+  );
+  z-index: 0;
+}
+.hero-section-content {
+  position: relative;
+  z-index: 2;
+}
+
+/* B.2. Efek Partikel Hero */
+#hero-particles {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+}
+
+/* C.3. Layanan Hover */
+.service-card {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.service-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 10px 25px rgba(0, 60, 255, 0.15);
+}
+
+/* D.4. Efek Konter Angka */
+.counter-stat {
+  font-weight: 800;
+  font-size: 3rem;
+  color: #003cff;
+}
+
+/* E.3. Efek Hover Tim */
+.team-card {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  overflow: hidden;
+}
+.team-card .team-img {
+  transition: transform 0.4s ease;
+}
+.team-card:hover {
+  box-shadow: 0 10px 25px rgba(0, 60, 255, 0.15);
+}
+.team-card:hover .team-img {
+  transform: scale(1.1);
+}
+.team-card .team-overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: linear-gradient(to top, rgba(0, 60, 255, 0.8), transparent);
+  opacity: 0;
+  transform: translateY(20%);
+  transition: all 0.4s ease;
+  padding: 1.5rem;
+}
+.team-card:hover .team-overlay {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* F.4. Galeri Lightbox */
+#lightbox {
+  background-color: rgba(0, 0, 0, 0.85);
+  backdrop-filter: blur(5px);
+  z-index: 1000;
+  transition: opacity 0.3s ease;
+}
+#lightbox-img {
+  max-width: 90vw;
+  max-height: 80vh;
+}
+.gallery-item {
+  cursor: pointer;
+  overflow: hidden;
+}
+.gallery-item img {
+  transition: transform 0.4s ease;
+}
+.gallery-item:hover img {
+  transform: scale(1.1);
+}
+.gallery-item .gallery-overlay {
+  background: rgba(0, 60, 255, 0.7);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+.gallery-item:hover .gallery-overlay {
+  opacity: 1;
+}
+
+/* G.2. Form Fokus */
+.form-input:focus {
+  border-color: #0097ff;
+  box-shadow: 0 0 0 3px rgba(0, 151, 255, 0.2);
+  outline: none;
+}
