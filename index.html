@@ -1,976 +1,1626 @@
 <!DOCTYPE html>
 <html lang="id">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WANIGO!</title>
+    <meta name="description" content="WANIGO! - Solusi Bank Sampah Digital Inovatif berbasis AI untuk manajemen limbah on-demand.">
+    
+    <!-- Ikon Sederhana (Emoji) untuk Placeholder -->
+    <style>
+        /* * ===============================================
+         * STYLING GLOBAL & VARIABEL
+         * ===============================================
+         */
+        :root {
+            --primary-blue: #0097FF;
+            --secondary-blue: #003CFF;
+            --primary-gradient: linear-gradient(90deg, #0097FF, #003CFF);
+            --light-blue-bg: #E3F2FD;
+            --dark-text: #333;
+            --light-text: #ffffff;
+            --border-color: #ddd;
+            --shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+            --shadow-hover: 0 6px 16px rgba(0, 0, 0, 0.12);
+        }
 
-    <!-- A.1. Meta Data -->
-    <title>WANIGO! - Solusi Bank Sampah Digital Inovatif</title>
-    <meta
-      name="description"
-      content="WANIGO hadir sebagai solusi green tech yang mentransformasi operasional bank sampah melalui digitalisasi penuh. Solusi Bank Sampah Digital Inovatif." />
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
 
-    <!-- Tailwind CSS -->
-    <script src="https://cdn.tailwindcss.com"></script>
+        html {
+            scroll-behavior: smooth;
+        }
 
-    <!-- Lucide Icons -->
-    <script src="https://unpkg.com/lucide@latest"></script>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            line-height: 1.7;
+            color: var(--dark-text);
+            background-color: #f9f9f9;
+        }
 
-    <!-- Google Font (Inter) -->
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap"
-      rel="stylesheet" />
-    <link rel="stylesheet" href="style.css" />
-    <!-- Konfigurasi Tailwind & Warna Kustom -->
-    <script>
-      tailwind.config = {
-        theme: {
-          extend: {
-            fontFamily: {
-              inter: ["Inter", "sans-serif"],
-            },
-            colors: {
-              "wanigo-blue-start": "#0097FF",
-              "wanigo-blue-end": "#003CFF",
-              "wanigo-dark": "#0a193a", // Biru tua untuk teks
-            },
-          },
-        },
-      };
-    </script>
-  </head>
-  <body class="bg-white">
-    <!-- A.2. Header (Navigasi Atas) -->
-    <header class="bg-black/90 backdrop-blur-md shadow-sm sticky top-0 z-50">
-      <nav
-        class="container mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 flex justify-between items-center h-20">
-        <!-- Logo -->
-        <a href="#home" class="nav-trigger" data-page="home">
-          <div class="flex items-center space-x-3">
-            <img
-              src="images/Frame 48095867.png"
-              alt="Logo 1"
-              class="h-10 w-auto" />
-            <img
-              src="images/Frame 48095867 (1).png"
-              alt="Logo 2"
-              class="h-10 w-auto" />
-          </div>
-        </a>
+        a {
+            text-decoration: none;
+            color: var(--primary-blue);
+            transition: color 0.3s ease;
+        }
 
-        <!-- Menu Navigasi Desktop -->
-        <div class="hidden md:flex items-center space-x-8">
-          <a href="#home" class="nav-link nav-trigger pb-1" data-page="home"
-            >Home</a
-          >
-          <a href="#about" class="nav-link nav-trigger pb-1" data-page="about"
-            >About Us</a
-          >
-          <a
-            href="#members"
-            class="nav-link nav-trigger pb-1"
-            data-page="members"
-            >Members</a
-          >
-          <a
-            href="#gallery"
-            class="nav-link nav-trigger pb-1"
-            data-page="gallery"
-            >Gallery</a
-          >
-          <a
-            href="#contacts"
-            class="nav-link nav-trigger pb-1"
-            data-page="contacts"
-            >Contacts</a
-          >
+        a:hover {
+            color: var(--secondary-blue);
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-weight: 700;
+            margin-bottom: 0.75rem;
+            line-height: 1.3;
+        }
+
+        h1 { font-size: 2.8rem; }
+        h2 { font-size: 2.2rem; }
+        h3 { font-size: 1.5rem; }
+
+        p {
+            margin-bottom: 1rem;
+        }
+
+        /* Kontainer Utility */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Tombol Global Utility */
+        .btn {
+            display: inline-block;
+            padding: 12px 28px;
+            border-radius: 50px; /* Fully rounded */
+            background: var(--primary-gradient);
+            color: var(--light-text);
+            font-weight: 700;
+            text-align: center;
+            border: none;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(0, 151, 255, 0.3);
+        }
+
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(0, 151, 255, 0.5);
+            filter: brightness(1.1);
+        }
+
+        /* Placeholder untuk Ikon (bisa diganti emoji atau font icon) */
+        .icon-placeholder {
+            font-size: 2.5rem;
+            color: var(--primary-blue);
+            margin-bottom: 1rem;
+            display: inline-block;
+        }
+        
+        section {
+            padding: 4rem 0;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+        .section-title h2 {
+            margin-bottom: 0.5rem;
+        }
+        .section-title p {
+            font-size: 1.1rem;
+            color: #777;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* * ===============================================
+         * HEADER & NAVIGASI
+         * ===============================================
+         */
+        #main-header {
+            background: var(--primary-gradient);
+            color: var(--light-text);
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        #main-header .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 800;
+            letter-spacing: -1px;
+            color: var(--light-text);
+            /* Placeholder styling */
+            width: 120px;
+            height: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 2px dashed var(--light-text);
+            border-radius: 8px;
+        }
+
+        #main-nav ul {
+            display: flex;
+            gap: 1rem;
+        }
+
+        #main-nav a {
+            color: var(--light-text);
+            font-weight: 600;
+            padding: 0.75rem 1rem;
+            border-radius: 8px;
+            transition: background-color 0.3s ease;
+        }
+
+        #main-nav a:hover,
+        #main-nav a.active {
+            background-color: rgba(255, 255, 255, 0.2);
+        }
+
+        /* Hamburger Menu (Mobile) */
+        #menu-toggle {
+            display: none;
+            cursor: pointer;
+            font-size: 2rem;
+            flex-direction: column;
+            gap: 5px;
+        }
+        #menu-toggle .bar {
+            width: 28px;
+            height: 3px;
+            background-color: var(--light-text);
+            border-radius: 3px;
+            transition: all 0.3s ease;
+        }
+
+        /* * ===============================================
+         * FOOTER
+         * ===============================================
+         */
+        #main-footer {
+            background-color: #222;
+            color: #ccc;
+            padding: 3rem 0 0;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .footer-col h4 {
+            color: var(--light-text);
+            margin-bottom: 1rem;
+            border-bottom: 2px solid var(--primary-blue);
+            padding-bottom: 0.5rem;
+            display: inline-block;
+        }
+
+        .footer-col .logo-footer {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--light-text);
+            margin-bottom: 0.5rem;
+        }
+
+        .footer-col ul li {
+            margin-bottom: 0.5rem;
+        }
+
+        .footer-col ul li a {
+            color: #ccc;
+            transition: color 0.3s, padding-left 0.3s;
+        }
+
+        .footer-col ul li a:hover {
+            color: var(--light-text);
+            padding-left: 5px;
+        }
+
+        .footer-col .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 0.75rem;
+        }
+        
+        .footer-col .contact-item .icon {
+            font-style: normal; /* Placeholder icon */
+        }
+        
+        .social-icons {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .social-icons a {
+            font-size: 1.5rem;
+            color: #ccc;
+            transition: color 0.3s, transform 0.3s;
+        }
+        
+        .social-icons a:hover {
+            color: var(--primary-blue);
+            transform: scale(1.1);
+        }
+
+        .footer-bottom {
+            border-top: 1px solid #444;
+            padding: 1.5rem 0;
+            text-align: center;
+            font-size: 0.9rem;
+        }
+
+        /* * ===============================================
+         * HALAMAN HOME
+         * ===============================================
+         */
+
+        /* Hero Section */
+        #hero {
+            height: 90vh;
+            min-height: 600px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: var(--light-text);
+            background: var(--primary-gradient);
+            position: relative;
+            overflow: hidden;
+            padding: 0 20px;
+        }
+
+        #hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('https://placehold.co/1920x1080/005fff/ffffff?text=Inovasi+Pengelolaan+Limbah') no-repeat center center/cover;
+            opacity: 0.1;
+            z-index: 1;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 800px;
+        }
+        
+        .hero-content h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            font-weight: 800;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .hero-content p {
+            font-size: 1.25rem;
+            margin-bottom: 2rem;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+            text-shadow: 0 1px 3px rgba(0,0,0,0.2);
+        }
+
+        /* Partikel JS */
+        .particle {
+            position: absolute;
+            background: rgba(255, 255, 255, 0.5);
+            border-radius: 50%;
+            opacity: 0;
+            transition: opacity 0.5s ease-out, transform 0.5s ease-out;
+            pointer-events: none;
+            z-index: 3;
+        }
+
+        /* Layanan Unggulan */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+        }
+        
+        .service-card {
+            background: var(--light-text);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 2rem;
+            text-align: center;
+            box-shadow: var(--shadow);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .service-card:hover {
+            transform: scale(1.05);
+            box-shadow: var(--shadow-hover);
+        }
+        
+        .service-card h3 {
+            color: var(--primary-blue);
+        }
+        
+        /* Value Proposition */
+        .value-prop-layout {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: center;
+        }
+        
+        .value-prop-img img {
+            border-radius: 12px;
+            box-shadow: var(--shadow);
+        }
+        
+        .value-prop-list .list-item {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        .list-item .icon {
+            font-size: 1.5rem;
+            color: var(--primary-blue);
+            padding-top: 5px;
+            font-style: normal;
+        }
+
+        /* * ===============================================
+         * HALAMAN ABOUT US
+         * ===============================================
+         */
+        .breadcrumbs {
+            background: #f4f4f4;
+            padding: 1rem 0;
+            border-bottom: 1px solid var(--border-color);
+            font-size: 0.9rem;
+            color: #777;
+        }
+
+        #about-vision-mission {
+            background: var(--light-blue-bg);
+        }
+        
+        .vision-mission-layout {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+        }
+        
+        .vision-mission-layout h3 {
+            color: var(--primary-blue);
+            border-bottom: 2px solid var(--primary-blue);
+            padding-bottom: 0.5rem;
+            display: inline-block;
+        }
+        
+        .vision-mission-layout ul {
+            list-style: disc;
+            padding-left: 20px;
+        }
+        
+        .vision-mission-layout ul li {
+            margin-bottom: 0.75rem;
+        }
+
+        /* Statistik Counter */
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+            text-align: center;
+            padding: 3rem 0;
+            background: var(--light-text);
+            border-radius: 12px;
+            box-shadow: var(--shadow);
+        }
+        
+        .stat-item .counter {
+            font-size: 3.5rem;
+            font-weight: 800;
+            color: var(--primary-blue);
+            line-height: 1;
+        }
+        
+        .stat-item p {
+            font-size: 1.1rem;
+            color: #555;
+            font-weight: 600;
+            margin: 0;
+        }
+
+        /* * ===============================================
+         * HALAMAN MEMBERS
+         * ===============================================
+         */
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.5rem;
+        }
+        
+        .team-card {
+            background: var(--light-text);
+            border-radius: 12px;
+            box-shadow: var(--shadow);
+            overflow: hidden;
+            position: relative;
+            transition: box-shadow 0.3s ease;
+        }
+        
+        .team-card:hover {
+            box-shadow: var(--shadow-hover);
+        }
+
+        .team-card-img-wrapper {
+            overflow: hidden;
+            position: relative;
+        }
+
+        .team-card-img {
+            width: 100%;
+            height: 350px;
+            object-fit: cover;
+            transition: transform 0.4s ease;
+        }
+        
+        .team-card-info {
+            padding: 1.5rem;
+            text-align: center;
+        }
+        
+        .team-card-info h4 {
+            margin-bottom: 0.25rem;
+        }
+        
+        .team-card-info span {
+            font-size: 0.9rem;
+            color: var(--primary-blue);
+            font-weight: 600;
+            text-transform: uppercase;
+        }
+        
+        /* Interaksi Hover Overlay */
+        .team-card-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 100%; /* Mulai dari atas */
+            background: linear-gradient(to top, rgba(0, 60, 255, 0.8), rgba(0, 151, 255, 0.6));
+            color: var(--light-text);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            gap: 1rem;
+            transform: translateY(100%); /* Mulai dari bawah */
+            transition: transform 0.4s ease-in-out;
+            padding: 1rem;
+        }
+        
+        .team-card-overlay-icons {
+            display: flex;
+            gap: 1.5rem;
+            font-size: 1.8rem;
+        }
+        
+        .team-card-overlay-icons a {
+            color: var(--light-text);
+            transition: transform 0.3s ease;
+        }
+        
+        .team-card-overlay-icons a:hover {
+            transform: scale(1.2);
+        }
+
+        .team-card:hover .team-card-img {
+            transform: scale(1.03); /* Zoom-in foto */
+        }
+        
+        .team-card:hover .team-card-overlay {
+            transform: translateY(0); /* Overlay muncul */
+        }
+
+        /* * ===============================================
+         * HALAMAN GALLERY
+         * ===============================================
+         */
+        .gallery-filters {
+            text-align: center;
+            margin-bottom: 2.5rem;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 1rem;
+        }
+
+        .filter-btn {
+            background: var(--light-text);
+            border: 1px solid var(--border-color);
+            padding: 0.6rem 1.2rem;
+            border-radius: 50px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+        
+        .filter-btn:hover {
+            border-color: var(--primary-blue);
+            color: var(--primary-blue);
+        }
+        
+        .filter-btn.active {
+            background: var(--primary-gradient);
+            color: var(--light-text);
+            border-color: var(--primary-blue);
+        }
+
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.5rem;
+            /* Simple Masonry-like effect */
+            align-items: start;
+        }
+        
+        .gallery-item {
+            background: var(--light-text);
+            border-radius: 12px;
+            box-shadow: var(--shadow);
+            overflow: hidden;
+            cursor: pointer;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .gallery-item:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-hover);
+        }
+        
+        .gallery-item img {
+            width: 100%;
+            height: auto;
+        }
+        
+        .gallery-item-info {
+            padding: 1rem;
+        }
+
+        .gallery-item-info h5 {
+            margin-bottom: 0.25rem;
+        }
+        
+        .gallery-item-info p {
+            font-size: 0.9rem;
+            color: #777;
+            margin: 0;
+        }
+        
+        /* Lightbox (Modal) */
+        .lightbox {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.85);
+            z-index: 2000;
+            display: none; /* Diubah oleh JS */
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+            animation: fadeIn 0.3s ease;
+        }
+        
+        .lightbox.show {
+            display: flex;
+        }
+
+        .lightbox-content {
+            background: var(--light-text);
+            border-radius: 12px;
+            padding: 1.5rem;
+            max-width: 800px;
+            width: 100%;
+            max-height: 90vh;
+            overflow-y: auto;
+            position: relative;
+            animation: slideIn 0.3s ease-out;
+        }
+        
+        .lightbox-close {
+            position: absolute;
+            top: 15px;
+            right: 20px;
+            font-size: 2.5rem;
+            font-weight: bold;
+            color: #777;
+            cursor: pointer;
+            line-height: 1;
+            transition: color 0.3s ease;
+        }
+        
+        .lightbox-close:hover {
+            color: #000;
+        }
+        
+        #lightbox-img {
+            width: 100%;
+            border-radius: 8px;
+            margin-bottom: 1rem;
+        }
+
+        #lightbox-title {
+            margin-bottom: 0.5rem;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        @keyframes slideIn {
+            from { transform: translateY(-30px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+
+        /* * ===============================================
+         * HALAMAN CONTACTS
+         * ===============================================
+         */
+        .contact-layout {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 3rem;
+            background: var(--light-text);
+            padding: 2.5rem;
+            border-radius: 12px;
+            box-shadow: var(--shadow);
+        }
+        
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+        }
+        
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 0.9rem 1rem;
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            font-size: 1rem;
+            font-family: inherit;
+            transition: border-color 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        /* Interaksi Fokus */
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--primary-blue);
+            box-shadow: 0 0 8px rgba(0, 151, 255, 0.3);
+        }
+        
+        .form-group textarea {
+            min-height: 150px;
+            resize: vertical;
+        }
+        
+        .contact-info .info-item {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+            align-items: start;
+        }
+        
+        .contact-info .icon {
+            font-size: 1.5rem;
+            color: var(--primary-blue);
+            padding-top: 3px;
+            font-style: normal;
+            width: 25px;
+            text-align: center;
+        }
+        
+        .contact-info h5 {
+            margin: 0 0 0.25rem;
+        }
+        
+        .contact-info p {
+            margin: 0;
+            color: #555;
+            line-height: 1.5;
+        }
+        
+        .map-placeholder {
+            width: 100%;
+            height: 250px;
+            background: #eee;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #999;
+            font-weight: 600;
+            border: 1px dashed var(--border-color);
+            margin-top: 2rem;
+        }
+
+        /* * ===============================================
+         * RESPONSIVE DESIGN
+         * ===============================================
+         */
+
+        @media (max-width: 992px) {
+            h1 { font-size: 2.5rem; }
+            h2 { font-size: 2rem; }
+            .hero-content h1 { font-size: 3rem; }
+            
+            .team-grid { grid-template-columns: repeat(2, 1fr); }
+            .gallery-grid { grid-template-columns: repeat(2, 1fr); }
+            .contact-layout { grid-template-columns: 1fr; }
+            .value-prop-layout { grid-template-columns: 1fr; }
+            .value-prop-img { order: -1; margin-bottom: 2rem; }
+        }
+
+        @media (max-width: 768px) {
+            /* Tampilkan Hamburger Menu */
+            #menu-toggle {
+                display: flex;
+                z-index: 1002;
+            }
+            
+            #main-nav {
+                position: fixed;
+                top: 0;
+                right: -100%; /* Mulai dari luar layar */
+                width: 70%;
+                max-width: 300px;
+                height: 100vh;
+                background: var(--primary-gradient);
+                flex-direction: column;
+                padding-top: 6rem;
+                transition: right 0.4s ease-in-out;
+                box-shadow: -5px 0 15px rgba(0,0,0,0.2);
+                z-index: 1001;
+            }
+            
+            #main-nav.open {
+                right: 0;
+            }
+            
+            #main-nav ul {
+                flex-direction: column;
+                gap: 0;
+                width: 100%;
+            }
+            
+            #main-nav a {
+                display: block;
+                padding: 1.25rem 1.5rem;
+                border-radius: 0;
+                border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            }
+            
+            /* Toggle X
+            #menu-toggle.open .bar:nth-child(1) {
+                transform: rotate(45deg) translate(6px, 6px);
+            }
+            #menu-toggle.open .bar:nth-child(2) {
+                opacity: 0;
+            }
+            #menu-toggle.open .bar:nth-child(3) {
+                transform: rotate(-45deg) translate(7px, -7px);
+            } */
+
+            .footer-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+            
+            .vision-mission-layout { grid-template-columns: 1fr; }
+            .stats-grid { grid-template-columns: 1fr; }
+            .team-grid { grid-template-columns: 1fr; }
+        }
+        
+        @media (max-width: 576px) {
+            .hero-content h1 { font-size: 2.2rem; }
+            .hero-content p { font-size: 1.1rem; }
+            
+            .footer-grid {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+            
+            .footer-col .social-icons {
+                justify-content: center;
+            }
+            
+            .footer-col h4 {
+                display: inline-block;
+            }
+            
+            .gallery-grid { grid-template-columns: 1fr; }
+            .contact-layout { padding: 1.5rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- ======================= HEADER ======================= -->
+    <header id="main-header">
+        <div class="container">
+            <a href="#" class="logo" data-page="home">WANIGO!</a>
+            
+            <nav id="main-nav">
+                <ul>
+                    <li><a href="#" class="nav-link active" data-page="home">Home</a></li>
+                    <li><a href="#" class="nav-link" data-page="about">About Us</a></li>
+                    <li><a href="#" class="nav-link" data-page="members">Members</a></li>
+                    <li><a href="#" class="nav-link" data-page="gallery">Gallery</a></li>
+                    <li><a href="#" class="nav-link" data-page="contacts">Contacts</a></li>
+                </ul>
+            </nav>
+            
+            <!-- Tombol Hamburger -->
+            <div id="menu-toggle">
+                <div class="bar"></div>
+                <div class="bar"></div>
+                <div class="bar"></div>
+            </div>
         </div>
-
-        <!-- Tombol Burger Menu Mobile -->
-        <button id="burger-btn" class="md:hidden text-wanigo-dark z-50">
-          <i data-lucide="menu" class="w-6 h-6"></i>
-        </button>
-      </nav>
-
-      <!-- Menu Mobile (Tampil/Sembunyi) -->
-      <div
-        id="mobile-menu"
-        class="hidden md:hidden absolute top-0 left-0 w-full h-screen bg-white z-40 pt-24 p-8">
-        <div class="flex flex-col space-y-4">
-          <a
-            href="#home"
-            class="nav-link-mobile nav-trigger p-3 rounded-lg text-lg"
-            data-page="home"
-            >Home</a
-          >
-          <a
-            href="#about"
-            class="nav-link-mobile nav-trigger p-3 rounded-lg text-lg"
-            data-page="about"
-            >About Us</a
-          >
-          <a
-            href="#members"
-            class="nav-link-mobile nav-trigger p-3 rounded-lg text-lg"
-            data-page="members"
-            >Members</a
-          >
-          <a
-            href="#gallery"
-            class="nav-link-mobile nav-trigger p-3 rounded-lg text-lg"
-            data-page="gallery"
-            >Gallery</a
-          >
-          <a
-            href="#contacts"
-            class="nav-link-mobile nav-trigger p-3 rounded-lg text-lg"
-            data-page="contacts"
-            >Contacts</a
-          >
-        </div>
-      </div>
     </header>
 
-    <!-- Kontainer Utama untuk Halaman -->
-    <main>
-      <!-- ============================================= -->
-      <!-- B. Halaman: Home (Landing Page)                 -->
-      <!-- ============================================= -->
-      <div id="page-home" class="page-content">
-        <!-- B.1. Hero Section -->
-
-        <section class="relative hero-section text-white overflow-hidden">
-          <!-- B.2. Hiasan Interaktif (Partikel) -->
-          <canvas id="hero-particles"></canvas>
-
-          <div
-            class="hero-section-content container mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-32 md:py-48 relative z-10">
-            <div class="max-w-3xl mx-auto text-center">
-              <h1
-                class="text-4xl md:text-6xl font-extrabold leading-tight mb-6">
-                ♻️ On-Demand AI-Driven Waste Management System
-              </h1>
-              <p
-                class="text-lg md:text-xl text-blue-100 mb-10 max-w-2xl mx-auto">
-                Kota Surabaya menghadapi tantangan kritis dengan produksi 1.585
-                ton sampah setiap hari. Bank sampah yang menjadi garda terdepan
-                masih terkendala pencatatan manual yang lambat, rawan kesalahan,
-                dan menghambat efisiensi pengelolaan sampah. WANIGO hadir
-                sebagai solusi green tech yang mentransformasi operasional bank
-                sampah melalui digitalisasi penuh.
-              </p>
-              <a
-                href="#about"
-                class="nav-trigger inline-block bg-white text-wanigo-blue-end font-bold text-lg px-10 py-4 rounded-full shadow-lg hover:bg-gray-100 hover:shadow-xl transform hover:scale-105 transition duration-300"
-                data-page="about">
-                Click to know more
-              </a>
-            </div>
-          </div>
-        </section>
-
-        <!-- B.3. Section: Layanan Unggulan -->
-        <section class="py-20 bg-gray-50">
-          <div class="container mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-            <div class="text-center mb-16">
-              <h2 class="text-3xl md:text-4xl font-bold text-wanigo-dark mb-4">
-                Layanan yang Kami Tawarkan
-              </h2>
-              <p class="text-lg text-gray-600 max-w-2xl mx-auto">
-                Solusi Tepat untuk Kebutuhan Pengelolaan Sampah Anda
-              </p>
-            </div>
-
-            <div
-              class="grid grid-cols-1 md:grid-cols-2 gap-10 max-w-4xl mx-auto">
-              <!-- Card 1 -->
-              <div
-                class="service-card bg-white p-8 rounded-2xl shadow-lg border border-gray-100">
-                <div
-                  class="flex items-center justify-center h-16 w-16 bg-gradient-to-br from-wanigo-blue-start to-wanigo-blue-end rounded-full text-white mb-6">
-                  <i data-lucide="users" class="w-8 h-8"></i>
-                </div>
-                <h3 class="text-2xl font-bold text-wanigo-dark mb-3">
-                  WANIGO NASABAH
-                </h3>
-                <p class="text-gray-600">
-                  WANIGO untuk nasabah bank sampah. Memudahkan pencatatan,
-                  penjemputan, dan monitoring saldo sampah Anda secara digital.
-                </p>
-              </div>
-
-              <!-- Card 2 -->
-              <div
-                class="service-card bg-white p-8 rounded-2xl shadow-lg border border-gray-100">
-                <div
-                  class="flex items-center justify-center h-16 w-16 bg-gradient-to-br from-wanigo-blue-start to-wanigo-blue-end rounded-full text-white mb-6">
-                  <i data-lucide="database" class="w-8 h-8"></i>
-                </div>
-                <h3 class="text-2xl font-bold text-wanigo-dark mb-3">
-                  WANIGO BANK SAMPAH
-                </h3>
-                <p class="text-gray-600">
-                  WANIGO untuk pengelola bank sampah. Digitalisasi penuh untuk
-                  manajemen nasabah, inventori, dan pelaporan yang efisien.
-                </p>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        <!-- B.4. Section: Mengapa Memilih Kami -->
-        <section class="py-20">
-          <div class="container mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-              <!-- Kiri (Gambar) -->
-              <div class="rounded-2xl overflow-hidden shadow-2xl">
-                <img
-                  src="https://placehold.co/600x450/003CFF/FFFFFF?text=Diskusi+Tim+WANIGO"
-                  alt="Tim WANIGO"
-                  class="w-full h-full object-cover" />
-              </div>
-
-              <!-- Kanan (Poin Keunggulan) -->
-              <div>
-                <h2
-                  class="text-3xl md:text-4xl font-bold text-wanigo-dark mb-6">
-                  Kenapa WANIGO!?
-                </h2>
-                <p class="text-lg text-gray-600 mb-8">
-                  Kami bukan hanya penyedia platform, kami adalah partner Anda
-                  dalam mewujudkan pengelolaan sampah yang lebih baik dan
-                  berkelanjutan.
-                </p>
-                <div class="space-y-6">
-                  <div class="flex items-start">
-                    <div
-                      class="flex-shrink-0 flex items-center justify-center h-12 w-12 rounded-full bg-wanigo-blue-end text-white">
-                      <i data-lucide="award" class="w-6 h-6"></i>
-                    </div>
-                    <div class="ml-4">
-                      <h4 class="text-xl font-bold text-wanigo-dark">
-                        Tim Ahli & Berpengalaman
-                      </h4>
-                      <p class="text-gray-600 mt-1">
-                        Kami didukung oleh para profesional yang telah teruji di
-                        bidang teknologi dan manajemen lingkungan.
-                      </p>
-                    </div>
-                  </div>
-                  <div class="flex items-start">
-                    <div
-                      class="flex-shrink-0 flex items-center justify-center h-12 w-12 rounded-full bg-wanigo-blue-end text-white">
-                      <i data-lucide="handshake" class="w-6 h-6"></i>
-                    </div>
-                    <div class="ml-4">
-                      <h4 class="text-xl font-bold text-wanigo-dark">
-                        Pendekatan Kolaboratif
-                      </h4>
-                      <p class="text-gray-600 mt-1">
-                        Kami percaya komunikasi yang baik adalah kunci, Anda
-                        adalah bagian dari proses kami.
-                      </p>
-                    </div>
-                  </div>
-                  <div class="flex items-start">
-                    <div
-                      class="flex-shrink-0 flex items-center justify-center h-12 w-12 rounded-full bg-wanigo-blue-end text-white">
-                      <i data-lucide="check-check" class="w-6 h-6"></i>
-                    </div>
-                    <div class="ml-4">
-                      <h4 class="text-xl font-bold text-wanigo-dark">
-                        Kualitas Terjamin
-                      </h4>
-                      <p class="text-gray-600 mt-1">
-                        Kami memastikan solusi yang kami berikan berkualitas
-                        tinggi, tepat guna, dan mudah digunakan.
-                      </p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
-      </div>
-
-      <!-- ============================================= -->
-      <!-- C. Halaman: About Us (Tentang Kami)             -->
-      <!-- ============================================= -->
-      <div id="page-about" class="page-content hidden">
-        <!-- C.1. Header Halaman -->
-        <section class="py-12 bg-gray-100">
-          <div
-            class="container mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 text-center">
-            <h1 class="text-4xl font-bold text-wanigo-dark mb-2">
-              Tentang Kami
-            </h1>
-            <p class="text-gray-600">
-              Home /
-              <span class="text-wanigo-blue-end font-semibold">About Us</span>
-            </p>
-          </div>
-        </section>
-
-        <!-- C.2. Section: Profil Perusahaan -->
-        <section class="py-20">
-          <div class="container mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
-            <h2
-              class="text-3xl md:text-4xl font-bold text-wanigo-dark mb-6 text-center">
-              Selamat Datang di WANIGO!
-            </h2>
-            <p class="text-lg text-gray-600 leading-relaxed mb-6">
-              WANIGO adalah startup green-tech yang berfokus pada revolusi
-              digital dalam sistem manajemen bank sampah. Kami lahir dari
-              keprihatinan terhadap 1.585 ton sampah harian di Surabaya, di mana
-              bank sampah sebagai garda terdepan masih beroperasi secara manual.
-              Pencatatan yang lambat, kesalahan manusiawi, dan ketidakefisienan
-              data menghambat potensi mereka.
-            </p>
-            <p class="text-lg text-gray-600 leading-relaxed">
-              Kami menyediakan sistem manajemen berbasis AI yang terintegrasi,
-              mencakup aplikasi untuk nasabah dan dashboard komprehensif untuk
-              pengelola. Solusi kami mengotomatiskan pencatatan, mengoptimalkan
-              logistik penjemputan, memvalidasi data, dan menyediakan analisis
-              mendalam. Dengan WANIGO, kami mentransformasi bank sampah menjadi
-              lebih efisien, transparan, dan terukur, serta memberdayakan
-              masyarakat untuk berpartisipasi aktif dalam ekonomi sirkular.
-            </p>
-          </div>
-        </section>
-
-        <!-- C.3. Section: Visi & Misi -->
-        <section class="py-20 bg-blue-50/50">
-          <div class="container mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
-              <!-- Visi -->
-              <div class="bg-white p-8 rounded-xl shadow-lg">
-                <h3 class="text-3xl font-bold text-wanigo-dark mb-4">
-                  Visi Kami
-                </h3>
-                <p class="text-lg text-gray-600">
-                  Menjadi platform green-tech terdepan di Indonesia yang
-                  mentransformasi manajemen sampah perkotaan melalui inovasi
-                  digital, memberdayakan bank sampah, dan membangun ekosistem
-                  ekonomi sirkular yang berkelanjutan.
-                </p>
-              </div>
-              <!-- Misi -->
-              <div class="bg-white p-8 rounded-xl shadow-lg">
-                <h3 class="text-3xl font-bold text-wanigo-dark mb-4">
-                  Misi Kami
-                </h3>
-                <ul
-                  class="list-disc list-inside space-y-2 text-lg text-gray-600">
-                  <li>
-                    Mendigitalisasi operasional bank sampah secara penuh untuk
-                    meningkatkan efisiensi dan transparansi.
-                  </li>
-                  <li>
-                    Menyediakan platform yang mudah digunakan bagi nasabah untuk
-                    berpartisipasi dalam pengelolaan sampah.
-                  </li>
-                  <li>
-                    Menggunakan AI untuk optimalisasi logistik dan analisis data
-                    sampah yang akurat.
-                  </li>
-                  <li>
-                    Menciptakan dampak lingkungan dan sosial yang positif dengan
-                    mengurangi timbunan sampah di TPA.
-                  </li>
-                </ul>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        <!-- C.4. Hiasan Interaktif (Statistik) -->
-        <section class="py-20 bg-white">
-          <div class="container mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
-              <div>
-                <span id="stat-projects" class="counter-stat block">0</span>
-                <span class="text-xl text-gray-700 font-semibold"
-                  >Bank Sampah Mitra</span
-                >
-              </div>
-              <div>
-                <span id="stat-clients" class="counter-stat block">0</span>
-                <span class="text-xl text-gray-700 font-semibold"
-                  >Nasabah Terdaftar</span
-                >
-              </div>
-              <div>
-                <span id="stat-team" class="counter-stat block">0</span>
-                <span class="text-xl text-gray-700 font-semibold"
-                  >Tim Profesional</span
-                >
-              </div>
-            </div>
-          </div>
-        </section>
-      </div>
-
-      <!-- ============================================= -->
-      <!-- D. Halaman: Members (Tim Kami)                  -->
-      <!-- ============================================= -->
-      <div id="page-members" class="page-content hidden">
-        <!-- D.1. Header Halaman -->
-        <section class="py-12 bg-gray-100">
-          <div
-            class="container mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 text-center">
-            <h1 class="text-4xl font-bold text-wanigo-dark mb-2">
-              Kenali Tim Kami
-            </h1>
-            <p class="text-lg text-gray-600">
-              Kami Adalah Tim Profesional yang Berdedikasi dan Kreatif
-            </p>
-          </div>
-        </section>
-
-        <!-- D.2. Konten: Galeri Tim -->
-        <section class="py-20">
-          <div class="container mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10">
-              <!-- Kartu Anggota 1 -->
-              <div
-                class="team-card bg-white rounded-2xl shadow-xl text-center relative">
-                <div class="relative rounded-t-2xl overflow-hidden">
-                  <img
-                    src="https://placehold.co/400x400/0097FF/FFFFFF?text=Foto+Anggota+1"
-                    alt="Foto Anggota 1"
-                    class="w-full h-auto team-img" />
-                  <div
-                    class="team-overlay flex items-end justify-center text-white space-x-4 pb-4">
-                    <a href="#" class="hover:opacity-80 transition-opacity"
-                      ><i data-lucide="linkedin" class="w-6 h-6"></i
-                    ></a>
-                    <a href="#" class="hover:opacity-80 transition-opacity"
-                      ><i data-lucide="mail" class="w-6 h-6"></i
-                    ></a>
-                  </div>
-                </div>
-                <div class="p-6">
-                  <h3 class="text-2xl font-bold text-wanigo-dark">
-                    Nama Lengkap Anggota 1
-                  </h3>
-                  <p class="text-wanigo-blue-end font-semibold">
-                    Chief Executive Officer
-                  </p>
-                </div>
-              </div>
-
-              <!-- Kartu Anggota 2 -->
-              <div
-                class="team-card bg-white rounded-2xl shadow-xl text-center relative">
-                <div class="relative rounded-t-2xl overflow-hidden">
-                  <img
-                    src="https://placehold.co/400x400/003CFF/FFFFFF?text=Foto+Anggota+2"
-                    alt="Foto Anggota 2"
-                    class="w-full h-auto team-img" />
-                  <div
-                    class="team-overlay flex items-end justify-center text-white space-x-4 pb-4">
-                    <a href="#" class="hover:opacity-80 transition-opacity"
-                      ><i data-lucide="linkedin" class="w-6 h-6"></i
-                    ></a>
-                    <a href="#" class="hover:opacity-80 transition-opacity"
-                      ><i data-lucide="mail" class="w-6 h-6"></i
-                    ></a>
-                  </div>
-                </div>
-                <div class="p-6">
-                  <h3 class="text-2xl font-bold text-wanigo-dark">
-                    Nama Lengkap Anggota 2
-                  </h3>
-                  <p class="text-wanigo-blue-end font-semibold">
-                    Chief Technology Officer
-                  </p>
-                </div>
-              </div>
-
-              <!-- Kartu Anggota 3 -->
-              <div
-                class="team-card bg-white rounded-2xl shadow-xl text-center relative">
-                <div class="relative rounded-t-2xl overflow-hidden">
-                  <img
-                    src="https://placehold.co/400x400/0097FF/FFFFFF?text=Foto+Anggota+3"
-                    alt="Foto Anggota 3"
-                    class="w-full h-auto team-img" />
-                  <div
-                    class="team-overlay flex items-end justify-center text-white space-x-4 pb-4">
-                    <a href="#" class="hover:opacity-80 transition-opacity"
-                      ><i data-lucide="linkedin" class="w-6 h-6"></i
-                    ></a>
-                    <a href="#" class="hover:opacity-80 transition-opacity"
-                      ><i data-lucide="mail" class="w-6 h-6"></i
-                    ></a>
-                  </div>
-                </div>
-                <div class="p-6">
-                  <h3 class="text-2xl font-bold text-wanigo-dark">
-                    Nama Lengkap Anggota 3
-                  </h3>
-                  <p class="text-wanigo-blue-end font-semibold">
-                    Chief Marketing Officer
-                  </p>
-                </div>
-              </div>
-
-              <!-- Tambahkan kartu anggota lain di sini... -->
-            </div>
-          </div>
-        </section>
-      </div>
-
-      <!-- ============================================= -->
-      <!-- E. Halaman: Gallery (Portofolio)              -->
-      <!-- ============================================= -->
-      <div id="page-gallery" class="page-content hidden">
-        <!-- E.1. Header Halaman -->
-        <section class="py-12 bg-gray-100">
-          <div
-            class="container mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 text-center">
-            <h1 class="text-4xl font-bold text-wanigo-dark mb-2">
-              Galeri Portofolio Kami
-            </h1>
-            <p class="text-lg text-gray-600">
-              Karya-karya yang Telah Kami Ciptakan
-            </p>
-          </div>
-        </section>
-
-        <!-- E.2. Filter -->
-        <section class="py-8">
-          <div
-            id="gallery-filters"
-            class="container mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 flex justify-center flex-wrap gap-3">
-            <button
-              class="gallery-filter-btn active bg-wanigo-blue-end text-white font-semibold px-5 py-2 rounded-full"
-              data-filter="all">
-              Semua
-            </button>
-            <button
-              class="gallery-filter-btn bg-gray-200 text-gray-700 font-semibold px-5 py-2 rounded-full hover:bg-wanigo-blue-end hover:text-white transition"
-              data-filter="app">
-              Aplikasi Mobile
-            </button>
-            <button
-              class="gallery-filter-btn bg-gray-200 text-gray-700 font-semibold px-5 py-2 rounded-full hover:bg-wanigo-blue-end hover:text-white transition"
-              data-filter="dashboard">
-              Dashboard Admin
-            </button>
-            <button
-              class="gallery-filter-btn bg-gray-200 text-gray-700 font-semibold px-5 py-2 rounded-full hover:bg-wanigo-blue-end hover:text-white transition"
-              data-filter="event">
-              Kegiatan
-            </button>
-          </div>
-        </section>
-
-        <!-- E.3. Konten: Galeri Proyek -->
-        <section class="py-12">
-          <div class="container mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-            <div
-              id="gallery-grid"
-              class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-              <!-- Proyek 1 -->
-              <div
-                class="gallery-item rounded-xl shadow-lg relative"
-                data-category="app"
-                data-img-src="https://placehold.co/600x400/003CFF/FFFFFF?text=Aplikasi+Nasabah"
-                data-title="Aplikasi Nasabah"
-                data-desc="Aplikasi mobile untuk nasabah memantau saldo, request penjemputan, dan melihat poin.">
-                <img
-                  src="https://placehold.co/600x400/003CFF/FFFFFF?text=Aplikasi+Nasabah"
-                  alt="Aplikasi Nasabah"
-                  class="w-full h-full object-cover rounded-xl" />
-                <div
-                  class="gallery-overlay absolute inset-0 rounded-xl flex items-center justify-center">
-                  <h4 class="text-white text-2xl font-bold">
-                    Aplikasi Nasabah
-                  </h4>
-                </div>
-              </div>
-
-              <!-- Proyek 2 -->
-              <div
-                class="gallery-item rounded-xl shadow-lg relative"
-                data-category="dashboard"
-                data-img-src="https://placehold.co/600x400/0097FF/FFFFFF?text=Dashboard+Bank+Sampah"
-                data-title="Dashboard Bank Sampah"
-                data-desc="Dashboard admin komprehensif untuk mengelola data nasabah, inventori sampah, dan laporan keuangan.">
-                <img
-                  src="https://placehold.co/600x400/0097FF/FFFFFF?text=Dashboard+Bank+Sampah"
-                  alt="Dashboard Bank Sampah"
-                  class="w-full h-full object-cover rounded-xl" />
-                <div
-                  class="gallery-overlay absolute inset-0 rounded-xl flex items-center justify-center">
-                  <h4 class="text-white text-2xl font-bold">
-                    Dashboard Bank Sampah
-                  </h4>
-                </div>
-              </div>
-
-              <!-- Proyek 3 -->
-              <div
-                class="gallery-item rounded-xl shadow-lg relative"
-                data-category="event"
-                data-img-src="https://placehold.co/600x400/003CFF/FFFFFF?text=Sosialisasi+Warga"
-                data-title="Sosialisasi Warga"
-                data-desc="Kegiatan sosialisasi dan edukasi kepada warga mengenai pentingnya pemilahan sampah dan penggunaan aplikasi WANIGO.">
-                <img
-                  src="https://placehold.co/600x400/003CFF/FFFFFF?text=Sosialisasi+Warga"
-                  alt="Sosialisasi Warga"
-                  class="w-full h-full object-cover rounded-xl" />
-                <div
-                  class="gallery-overlay absolute inset-0 rounded-xl flex items-center justify-center">
-                  <h4 class="text-white text-2xl font-bold">
-                    Sosialisasi Warga
-                  </h4>
-                </div>
-              </div>
-
-              <!-- Proyek 4 -->
-              <div
-                class="gallery-item rounded-xl shadow-lg relative"
-                data-category="app"
-                data-img-src="https://placehold.co/600x400/0097FF/FFFFFF?text=Fitur+AI+Scan"
-                data-title="Fitur AI Scan Sampah"
-                data-desc="Fitur inovatif menggunakan AI untuk memindai dan mengidentifikasi jenis sampah secara otomatis.">
-                <img
-                  src="https://placehold.co/600x400/0097FF/FFFFFF?text=Fitur+AI+Scan"
-                  alt="Fitur AI Scan Sampah"
-                  class="w-full h-full object-cover rounded-xl" />
-                <div
-                  class="gallery-overlay absolute inset-0 rounded-xl flex items-center justify-center">
-                  <h4 class="text-white text-2xl font-bold">
-                    Fitur AI Scan Sampah
-                  </h4>
-                </div>
-              </div>
-
-              <!-- Tambahkan proyek lain di sini -->
-            </div>
-          </div>
-        </section>
-      </div>
-
-      <!-- ============================================= -->
-      <!-- F. Halaman: Contacts (Hubungi Kami)             -->
-      <!-- ============================================= -->
-      <div id="page-contacts" class="page-content hidden">
-        <!-- F.1. Header Halaman -->
-        <section class="py-12 bg-gray-100">
-          <div
-            class="container mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 text-center">
-            <h1 class="text-4xl font-bold text-wanigo-dark mb-2">
-              Hubungi Kami
-            </h1>
-            <p class="text-lg text-gray-600">
-              Punya ide? Mari diskusikan. Kami siap membantu Anda.
-            </p>
-          </div>
-        </section>
-
-        <!-- F.2. Konten (Form & Peta) -->
-        <section class="py-20">
-          <div class="container mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
-              <!-- Kolom Kiri: Formulir Kontak -->
-              <div
-                class="bg-white p-8 md:p-10 rounded-2xl shadow-xl border border-gray-100">
-                <form action="#" method="POST">
-                  <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 mb-6">
-                    <div>
-                      <label
-                        for="full-name"
-                        class="block text-sm font-semibold text-gray-700 mb-2"
-                        >Nama Lengkap</label
-                      >
-                      <input
-                        type="text"
-                        name="full-name"
-                        id="full-name"
-                        placeholder="Masukkan nama Anda"
-                        class="form-input w-full px-4 py-3 rounded-lg border border-gray-300 transition duration-200" />
-                    </div>
-                    <div>
-                      <label
-                        for="email"
-                        class="block text-sm font-semibold text-gray-700 mb-2"
-                        >Alamat Email</label
-                      >
-                      <input
-                        type="email"
-                        name="email"
-                        id="email"
-                        placeholder="Masukkan email Anda"
-                        class="form-input w-full px-4 py-3 rounded-lg border border-gray-300 transition duration-200" />
-                    </div>
-                  </div>
-                  <div class="mb-6">
-                    <label
-                      for="subject"
-                      class="block text-sm font-semibold text-gray-700 mb-2"
-                      >Subjek</label
-                    >
-                    <input
-                      type="text"
-                      name="subject"
-                      id="subject"
-                      placeholder="Topik diskusi"
-                      class="form-input w-full px-4 py-3 rounded-lg border border-gray-300 transition duration-200" />
-                  </div>
-                  <div class="mb-8">
-                    <label
-                      for="message"
-                      class="block text-sm font-semibold text-gray-700 mb-2"
-                      >Pesan Anda</label
-                    >
-                    <textarea
-                      name="message"
-                      id="message"
-                      rows="5"
-                      placeholder="Tuliskan pesan Anda di sini..."
-                      class="form-input w-full px-4 py-3 rounded-lg border border-gray-300 transition duration-200"></textarea>
-                  </div>
-                  <div>
-                    <button
-                      type="submit"
-                      class="w-full bg-gradient-to-r from-wanigo-blue-start to-wanigo-blue-end text-white font-bold text-lg px-8 py-4 rounded-lg shadow-lg hover:shadow-xl transform hover:scale-105 transition duration-300">
-                      Kirim Pesan
-                    </button>
-                  </div>
-                </form>
-              </div>
-
-              <!-- Kolom Kanan: Informasi Kontak & Peta -->
-              <div class="space-y-8">
-                <div
-                  class="bg-white p-8 rounded-2xl shadow-xl border border-gray-100">
-                  <h3 class="text-2xl font-bold text-wanigo-dark mb-6">
-                    Informasi Kontak
-                  </h3>
-                  <div class="space-y-5">
-                    <div class="flex items-start">
-                      <div
-                        class="flex-shrink-0 flex items-center justify-center h-12 w-12 rounded-full bg-blue-100 text-wanigo-blue-end">
-                        <i data-lucide="map-pin" class="w-6 h-6"></i>
-                      </div>
-                      <div class="ml-4">
-                        <h4 class="text-lg font-semibold text-wanigo-dark">
-                          Alamat
-                        </h4>
-                        <p class="text-gray-600">
-                          BME Barat Blok B7-30A, Keputih, Surabaya, Jawa Timur
-                        </p>
-                      </div>
-                    </div>
-                    <div class="flex items-start">
-                      <div
-                        class="flex-shrink-0 flex items-center justify-center h-12 w-12 rounded-full bg-blue-100 text-wanigo-blue-end">
-                        <i data-lucide="mail" class="w-6 h-6"></i>
-                      </div>
-                      <div class="ml-4">
-                        <h4 class="text-lg font-semibold text-wanigo-dark">
-                          Email
-                        </h4>
-                        <p class="text-gray-600">wanigo.surabaya@gmail.com</p>
-                      </div>
-                    </div>
-                    <div class="flex items-start">
-                      <div
-                        class="flex-shrink-0 flex items-center justify-center h-12 w-12 rounded-full bg-blue-100 text-wanigo-blue-end">
-                        <i data-lucide="phone" class="w-6 h-6"></i>
-                      </div>
-                      <div class="ml-4">
-                        <h4 class="text-lg font-semibold text-wanigo-dark">
-                          Telepon
-                        </h4>
-                        <p class="text-gray-600">+62 811-4000-660</p>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-
-                <!-- Peta -->
-                <div class="rounded-2xl shadow-xl overflow-hidden h-80">
-                  <iframe
-                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15830.490795324227!2d112.78010839686035!3d-7.283151834241122!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2dd7fa132d731881%3A0xf63467265f053331!2sInstitut%20Teknologi%20Sepuluh%20Nopember!5e0!3m2!1sid!2sid!4v1678888888888!5m2!1sid!2sid"
-                    width="100%"
-                    height="100%"
-                    style="border: 0"
-                    allowfullscreen=""
-                    loading="lazy"
-                    referrerpolicy="no-referrer-when-downgrade">
-                  </iframe>
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
-      </div>
+    <!-- ======================= KONTEN HALAMAN DINAMIS ======================= -->
+    <!-- Konten akan di-render oleh JavaScript di sini -->
+    <main id="page-content">
+        <!-- Placeholder Loading Sederhana -->
+        <div style="text-align: center; padding: 5rem; font-size: 1.5rem;">
+            Memuat Halaman...
+        </div>
     </main>
 
-    <!-- A.3. Footer (Bagian Bawah) -->
-    <footer class="bg-wanigo-dark text-gray-300 pt-16 pb-8">
-      <div class="container mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <div
-          class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 mb-10">
-          <!-- Kolom 1: Logo & Deskripsi -->
-          <div>
-            <img
-              src="https://placehold.co/120x50/003CFF/FFFFFF?text=WANIGO!"
-              alt="WANIGO! Logo"
-              class="mb-4"
-              style="
-                width: 120px;
-                height: 50px;
-                background: white;
-                border-radius: 8px;
-                padding: 4px;
-              " />
-            <p class="text-gray-400">
-              WANIGO! hadir tidak hanya untuk menyediakan platform untuk mencari
-              uang tambahan tapi juga mengurangi resiko sampah menumpuk.
-            </p>
-          </div>
-
-          <!-- Kolom 2: Navigasi Cepat -->
-          <div>
-            <h5 class="text-lg font-bold text-white mb-4">Navigasi Cepat</h5>
-            <ul class="space-y-2">
-              <li>
-                <a
-                  href="#home"
-                  class="nav-trigger hover:text-wanigo-blue-start transition"
-                  data-page="home"
-                  >Home</a
-                >
-              </li>
-              <li>
-                <a
-                  href="#about"
-                  class="nav-trigger hover:text-wanigo-blue-start transition"
-                  data-page="about"
-                  >About Us</a
-                >
-              </li>
-              <li>
-                <a
-                  href="#members"
-                  class="nav-trigger hover:text-wanigo-blue-start transition"
-                  data-page="members"
-                  >Members</a
-                >
-              </li>
-              <li>
-                <a
-                  href="#gallery"
-                  class="nav-trigger hover:text-wanigo-blue-start transition"
-                  data-page="gallery"
-                  >Gallery</a
-                >
-              </li>
-              <li>
-                <a
-                  href="#contacts"
-                  class="nav-trigger hover:text-wanigo-blue-start transition"
-                  data-page="contacts"
-                  >Contacts</a
-                >
-              </li>
-            </ul>
-          </div>
-
-          <!-- Kolom 3: Kontak -->
-          <div>
-            <h5 class="text-lg font-bold text-white mb-4">Kontak</h5>
-            <ul class="space-y-3">
-              <li class="flex items-start">
-                <i
-                  data-lucide="map-pin"
-                  class="w-5 h-5 mr-3 mt-1 flex-shrink-0 text-wanigo-blue-start"></i>
-                <span
-                  >BME Barat Blok B7-30A, Keputih, Surabaya, Jawa Timur</span
-                >
-              </li>
-              <li class="flex items-start">
-                <i
-                  data-lucide="mail"
-                  class="w-5 h-5 mr-3 mt-1 flex-shrink-0 text-wanigo-blue-start"></i>
-                <span>wanigo.surabaya@gmail.com</span>
-              </li>
-              <li class="flex items-start">
-                <i
-                  data-lucide="phone"
-                  class="w-5 h-5 mr-3 mt-1 flex-shrink-0 text-wanigo-blue-start"></i>
-                <span>+62 811-4000-660</span>
-              </li>
-            </ul>
-          </div>
-
-          <!-- Kolom 4: Media Sosial -->
-          <div>
-            <h5 class="text-lg font-bold text-white mb-4">Media Sosial</h5>
-            <p class="text-gray-400 mb-4">Ikuti kami untuk update terbaru.</p>
-            <div class="flex space-x-4">
-              <a
-                href="#"
-                class="w-10 h-10 bg-gray-700 hover:bg-wanigo-blue-start rounded-full flex items-center justify-center transition"
-                ><i data-lucide="facebook" class="w-5 h-5"></i
-              ></a>
-              <a
-                href="#"
-                class="w-10 h-10 bg-gray-700 hover:bg-wanigo-blue-start rounded-full flex items-center justify-center transition"
-                ><i data-lucide="instagram" class="w-5 h-5"></i
-              ></a>
-              <a
-                href="#"
-                class="w-10 h-10 bg-gray-700 hover:bg-wanigo-blue-start rounded-full flex items-center justify-center transition"
-                ><i data-lucide="linkedin" class="w-5 h-5"></i
-              ></a>
-              <a
-                href="#"
-                class="w-10 h-10 bg-gray-700 hover:bg-wanigo-blue-start rounded-full flex items-center justify-center transition"
-                ><i data-lucide="twitter" class="w-5 h-5"></i
-              ></a>
+    <!-- ======================= FOOTER ======================= -->
+    <footer id="main-footer">
+        <div class="container">
+            <div class="footer-grid">
+                <!-- Kolom 1: Logo & Slogan -->
+                <div class="footer-col">
+                    <h3 class="logo-footer">WANIGO!</h3>
+                    <p>Solusi Bank Sampah Digital Inovatif untuk masa depan yang lebih hijau.</p>
+                </div>
+                
+                <!-- Kolom 2: Navigasi Cepat -->
+                <div class="footer-col">
+                    <h4>Navigasi</h4>
+                    <ul>
+                        <li><a href="#" class="nav-link" data-page="home">Home</a></li>
+                        <li><a href="#" class="nav-link" data-page="about">About Us</a></li>
+                        <li><a href="#" class="nav-link" data-page="members">Members</a></li>
+                        <li><a href="#" class="nav-link" data-page="gallery">Gallery</a></li>
+                        <li><a href="#" class="nav-link" data-page="contacts">Contacts</a></li>
+                    </ul>
+                </div>
+                
+                <!-- Kolom 3: Info Kontak -->
+                <div class="footer-col">
+                    <h4>Kontak Kami</h4>
+                    <ul>
+                        <li class="contact-item">
+                            <span class="icon">📧</span>
+                            <span>info@wanigo.id</span>
+                        </li>
+                        <li class="contact-item">
+                            <span class="icon">📞</span>
+                            <span>+62 812 3456 7890</span>
+                        </li>
+                        <li class="contact-item">
+                            <span class="icon">📍</span>
+                            <span>Jl. Inovasi No. 1, Surabaya, Indonesia</span>
+                        </li>
+                    </ul>
+                </div>
+                
+                <!-- Kolom 4: Media Sosial -->
+                <div class="footer-col">
+                    <h4>Ikuti Kami</h4>
+                    <p>Dapatkan update terbaru dari kami.</p>
+                    <div class="social-icons">
+                        <!-- Placeholder ikon media sosial -->
+                        <a href="#" title="Facebook">FB</a>
+                        <a href="#" title="Twitter">TW</a>
+                        <a href="#" title="Instagram">IG</a>
+                        <a href="#" title="LinkedIn">IN</a>
+                    </div>
+                </div>
             </div>
-          </div>
         </div>
-
-        <!-- Baris Bawah: Copyright -->
-        <div class="border-t border-gray-700 pt-6 text-center">
-          <p class="text-gray-400">
-            Copyright © 2025 [WANIGO!]. All Rights Reserved.
-          </p>
+        
+        <div class="footer-bottom">
+            <p>Copyright &copy; 2025 WANIGO!. All Rights Reserved.</p>
         </div>
-      </div>
     </footer>
-
-    <!-- F.4. Galeri Lightbox HTML -->
-    <div
-      id="lightbox"
-      class="hidden fixed inset-0 w-full h-full flex items-center justify-center p-4">
-      <div
-        class="relative bg-white p-4 rounded-lg shadow-2xl max-w-4xl max-h-full">
-        <button
-          id="close-lightbox"
-          class="absolute -top-4 -right-4 w-10 h-10 bg-white rounded-full text-wanigo-dark flex items-center justify-center shadow-lg hover:bg-gray-200 z-10">
-          <i data-lucide="x" class="w-6 h-6"></i>
-        </button>
-        <img
-          id="lightbox-img"
-          src=""
-          alt="Proyek Portofolio"
-          class="rounded-md mb-3 object-contain" />
-        <h4
-          id="lightbox-title"
-          class="text-2xl font-bold text-wanigo-dark mb-2"></h4>
-        <p id="lightbox-desc" class="text-gray-700"></p>
-      </div>
+    
+    <!-- ======================= LIGHTBOX (MODAL) GALERI ======================= -->
+    <!-- Struktur ini ada di body tapi tersembunyi, dikontrol oleh JS -->
+    <div class="lightbox" id="gallery-lightbox">
+        <div class="lightbox-content">
+            <span class="lightbox-close" id="lightbox-close">&times;</span>
+            <img src="" alt="Proyek Galeri" id="lightbox-img">
+            <h3 id="lightbox-title">Judul Proyek</h3>
+            <p id="lightbox-desc">Deskripsi proyek akan muncul di sini.</p>
+        </div>
     </div>
-  </body>
+
+
+    <!-- =================================================================== -->
+    <!-- ======================= JAVASCRIPT LOGIC ========================== -->
+    <!-- =================================================================== -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+
+            // === ELEMEN DOM GLOBAL ===
+            const pageContent = document.getElementById('page-content');
+            const navLinks = document.querySelectorAll('.nav-link'); // Semua link nav (header & footer)
+            const mainNav = document.getElementById('main-nav');
+            const menuToggle = document.getElementById('menu-toggle');
+
+            // === TEMPLATE HTML UNTUK SETIAP HALAMAN ===
+            // Menggunakan template literal untuk struktur HTML yang bersih
+            
+            // --- TEMPLATE HALAMAN HOME ---
+            const homeTemplate = `
+                <!-- 1. Hero Section -->
+                <section id="hero">
+                    <div class="hero-content">
+                        <h1>♻️ On-Demand AI-Driven Waste Management System</h1>
+                        <p>
+                            WANIGO! hadir di Surabaya sebagai platform digital inovatif yang menghubungkan 
+                            Bank Sampah Unit (BSU) dengan Nasabah (Rumah Tangga/Perkantoran) secara 
+                            on-demand, didukung oleh AI untuk optimalisasi rute dan prediksi volume sampah.
+                        </p>
+                        <a href="#" class="btn" id="hero-cta-btn">Click to know more</a>
+                    </div>
+                </section>
+                
+                <!-- 2. Layanan Unggulan -->
+                <section id="services" class="container">
+                    <div class="section-title">
+                        <h2>Layanan Unggulan Kami</h2>
+                        <p>Solusi terintegrasi untuk nasabah dan pengelola bank sampah.</p>
+                    </div>
+                    <div class="services-grid">
+                        <div class="service-card">
+                            <span class="icon-placeholder">📱</span>
+                            <h3>WANIGO NASABAH</h3>
+                            <p>Aplikasi mobile untuk request penjemputan sampah terpilah, tracking, dan redeem poin.</p>
+                        </div>
+                        <div class="service-card">
+                            <span class="icon-placeholder">🏦</span>
+                            <h3>WANIGO BANK SAMPAH</h3>
+                            <p>Dashboard manajemen untuk BSU, optimasi rute penjemputan, dan laporan digital.</p>
+                        </div>
+                        <div class="service-card">
+                            <span class="icon-placeholder">🤖</span>
+                            <h3>AI OPTIMIZATION</h3>
+                            <p>Sistem cerdas untuk prediksi volume sampah dan penentuan rute kurir yang efisien.</p>
+                        </div>
+                    </div>
+                </section>
+                
+                <!-- 3. Value Proposition -->
+                <section id="value-prop" class="container">
+                    <div class="value-prop-layout">
+                        <div class="value-prop-img">
+                            <img src="https://placehold.co/500x350/1e88e5/ffffff?text=Tim+Profesional+WANIGO!" alt="Tim Profesional Wanigo">
+                        </div>
+                        <div class="value-prop-content">
+                            <h2>Mengapa Memilih WANIGO!</h2>
+                            <p>Kami bukan hanya penyedia platform, kami adalah partner Anda dalam mewujudkan lingkungan yang lebih bersih dan ekonomi sirkular.</p>
+                            <div class="value-prop-list">
+                                <div class="list-item">
+                                    <span class="icon">✔️</span>
+                                    <div>
+                                        <h4>Tim Ahli</h4>
+                                        <p>Didukung oleh profesional di bidang teknologi, lingkungan, dan manajemen logistik.</p>
+                                    </div>
+                                </div>
+                                <div class="list-item">
+                                    <span class="icon">✔️</span>
+                                    <div>
+                                        <h4>Kolaboratif</h4>
+                                        <p>Bermitra erat dengan pemerintah lokal, komunitas, dan industri daur ulang.</p>
+                                    </div>
+                                </div>
+                                <div class="list-item">
+                                    <span class="icon">✔️</span>
+                                    <div>
+                                        <h4>Kualitas Terjamin</h4>
+                                        <p>Platform yang andal, aman, dan terus dikembangkan berdasarkan data dan umpan balik pengguna.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            `;
+
+            // --- TEMPLATE HALAMAN ABOUT US ---
+            const aboutTemplate = `
+                <div class="breadcrumbs">
+                    <div class="container">
+                        Home / About Us
+                    </div>
+                </div>
+            
+                <!-- 1. Visi & Misi -->
+                <section id="about-vision-mission">
+                    <div class="container">
+                        <div class="vision-mission-layout">
+                            <div class="vision-content">
+                                <h3>Visi Kami</h3>
+                                <p>Menjadi platform digital terdepan dalam pengelolaan sampah berkelanjutan di Indonesia, menciptakan ekosistem ekonomi sirkular yang inklusif dan berbasis teknologi.</p>
+                            </div>
+                            <div class="mission-content">
+                                <h3>Misi Kami</h3>
+                                <ul>
+                                    <li>Memberikan kemudahan bagi masyarakat untuk berpartisipasi dalam pemilahan sampah.</li>
+                                    <li>Mendigitalisasi dan mengoptimalkan operasional Bank Sampah Unit (BSU).</li>
+                                    <li>Menerapkan teknologi AI untuk efisiensi logistik dan prediksi data.</li>
+                                    <li>Membangun kemitraan strategis untuk memperkuat rantai pasok daur ulang.</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                
+                <!-- 2. Statistik (Counter) -->
+                <section id="stats" class="container">
+                    <div class="section-title">
+                        <h2>Pencapaian Kami</h2>
+                        <p>Angka-angka yang mendorong kami untuk terus berinovasi.</p>
+                    </div>
+                    <div class="stats-grid">
+                        <div class="stat-item">
+                            <h3 class="counter" data-target="100">0</h3>
+                            <p>Bank Sampah Mitra</p>
+                        </div>
+                        <div class="stat-item">
+                            <h3 class="counter" data-target="50">0</h3>
+                            <p>Kecamatan Terjangkau</p>
+                        </div>
+                        <div class="stat-item">
+                            <h3 class="counter" data-target="10">0</h3>
+                            <p>Ton Sampah Terkelola</p>
+                        </div>
+                    </div>
+                </section>
+            `;
+
+            // --- TEMPLATE HALAMAN MEMBERS ---
+            const membersTemplate = `
+                <div class="breadcrumbs">
+                    <div class="container">
+                        Home / Members
+                    </div>
+                </div>
+            
+                <section id="team" class="container">
+                    <div class="section-title">
+                        <h2>Tim Kami</h2>
+                        <p>Profesional yang berdedikasi di balik kesuksesan WANIGO!.</p>
+                    </div>
+                    <div class="team-grid">
+                        <!-- Member 1 -->
+                        <div class="team-card">
+                            <div class="team-card-img-wrapper">
+                                <img src="https://placehold.co/400x450/e0e0e0/555555?text=Foto+CEO" alt="Foto CEO" class="team-card-img">
+                                <div class="team-card-overlay">
+                                    <div class="team-card-overlay-icons">
+                                        <a href="#" title="LinkedIn">IN</a>
+                                        <a href="#" title="Email">✉️</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="team-card-info">
+                                <h4>Ahmad Zulkifli</h4>
+                                <span>CEO & Founder</span>
+                            </div>
+                        </div>
+                        
+                        <!-- Member 2 -->
+                        <div class="team-card">
+                            <div class="team-card-img-wrapper">
+                                <img src="https://placehold.co/400x450/e0e0e0/555555?text=Foto+CTO" alt="Foto CTO" class="team-card-img">
+                                <div class="team-card-overlay">
+                                    <div class="team-card-overlay-icons">
+                                        <a href="#" title="LinkedIn">IN</a>
+                                        <a href="#" title="Email">✉️</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="team-card-info">
+                                <h4>Siti Nurhaliza</h4>
+                                <span>Chief Technology Officer (CTO)</span>
+                            </div>
+                        </div>
+                        
+                        <!-- Member 3 (Placeholder) -->
+                        <div class="team-card">
+                            <div class="team-card-img-wrapper">
+                                <img src="https://placehold.co/400x450/e0e0e0/555555?text=Foto+CMO" alt="Foto CMO" class="team-card-img">
+                                <div class="team-card-overlay">
+                                    <div class="team-card-overlay-icons">
+                                        <a href="#" title="LinkedIn">IN</a>
+                                        <a href="#" title="Email">✉️</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="team-card-info">
+                                <h4>Budi Santoso</h4>
+                                <span>Chief Marketing Officer (CMO)</span>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            `;
+            
+            // --- TEMPLATE HALAMAN GALLERY ---
+            const galleryTemplate = `
+                <div class="breadcrumbs">
+                    <div class="container">
+                        Home / Gallery
+                    </div>
+                </div>
+            
+                <section id="gallery" class="container">
+                    <div class="section-title">
+                        <h2>Galeri Proyek</h2>
+                        <p>Lihat lebih dekat solusi yang telah kami kembangkan.</p>
+                    </div>
+                    
+                    <!-- Filter Buttons -->
+                    <div class="gallery-filters" id="gallery-filters">
+                        <button class="filter-btn active" data-filter="all">Semua</button>
+                        <button class="filter-btn" data-filter="web">Desain Web</button>
+                        <button class="filter-btn" data-filter="mobile">Aplikasi Mobile</button>
+                        <button class="filter-btn" data-filter="branding">Branding</button>
+                    </div>
+                    
+                    <!-- Gallery Grid -->
+                    <div class="gallery-grid" id="gallery-grid">
+                        <!-- Item 1 -->
+                        <div class="gallery-item" data-category="mobile" 
+                             data-img="https://placehold.co/600x400/0097FF/FFFFFF?text=Aplikasi+Nasabah" 
+                             data-title="Aplikasi Mobile Nasabah" 
+                             data-desc="Desain UI/UX untuk aplikasi mobile nasabah, fokus pada kemudahan penggunaan.">
+                            <img src="https://placehold.co/400x300/0097FF/FFFFFF?text=Aplikasi+Nasabah" alt="Proyek 1">
+                            <div class="gallery-item-info">
+                                <h5>Aplikasi Mobile Nasabah</h5>
+                                <p>Aplikasi Mobile</p>
+                            </div>
+                        </div>
+                        
+                        <!-- Item 2 -->
+                        <div class="gallery-item" data-category="web"
+                             data-img="https://placehold.co/600x400/003CFF/FFFFFF?text=Dashboard+BSU" 
+                             data-title="Dashboard Admin Bank Sampah" 
+                             data-desc="Platform web komprehensif untuk manajemen operasional BSU.">
+                            <img src="https://placehold.co/400x300/003CFF/FFFFFF?text=Dashboard+BSU" alt="Proyek 2">
+                            <div class="gallery-item-info">
+                                <h5>Dashboard Admin BSU</h5>
+                                <p>Desain Web</p>
+                            </div>
+                        </div>
+                        
+                        <!-- Item 3 -->
+                        <div class="gallery-item" data-category="branding"
+                             data-img="https://placehold.co/600x400/1de9b6/FFFFFF?text=Branding+Kit" 
+                             data-title="Branding & Identitas Visual" 
+                             data-desc="Pengembangan identitas visual WANIGO! yang modern dan ramah lingkungan.">
+                            <img src="https://placehold.co/400x300/1de9b6/FFFFFF?text=Branding+Kit" alt="Proyek 3">
+                            <div class="gallery-item-info">
+                                <h5>Branding Kit WANIGO!</h5>
+                                <p>Branding</p>
+                            </div>
+                        </div>
+                        
+                        <!-- Item 4 -->
+                        <div class="gallery-item" data-category="mobile"
+                             data-img="https://placehold.co/600x400/ff9800/FFFFFF?text=Aplikasi+Kurir" 
+                             data-title="Aplikasi Mobile Kurir" 
+                             data-desc="Aplikasi khusus kurir dengan fitur optimasi rute dan bukti penjemputan.">
+                            <img src="https://placehold.co/400x300/ff9800/FFFFFF?text=Aplikasi+Kurir" alt="Proyek 4">
+                            <div class="gallery-item-info">
+                                <h5>Aplikasi Mobile Kurir</h5>
+                                <p>Aplikasi Mobile</p>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            `;
+            
+            // --- TEMPLATE HALAMAN CONTACTS ---
+            const contactsTemplate = `
+                <div class="breadcrumbs">
+                    <div class="container">
+                        Home / Contacts
+                    </div>
+                </div>
+                
+                <section id="contact" class="container">
+                    <div class="section-title">
+                        <h2>Hubungi Kami</h2>
+                        <p>Kami siap mendengar ide, pertanyaan, atau kolaborasi dari Anda.</p>
+                    </div>
+                    
+                    <div class="contact-layout">
+                        <!-- Kolom Formulir -->
+                        <div class="contact-form">
+                            <h3>Kirim Pesan</h3>
+                            <form id="main-contact-form">
+                                <div class="form-group">
+                                    <label for="name">Nama Lengkap</label>
+                                    <input type="text" id="name" name="name" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="email">Email</label>
+                                    <input type="email" id="email" name="email" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="subject">Subjek</label>
+                                    <input type="text" id="subject" name="subject" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="message">Pesan Anda</label>
+                                    <textarea id="message" name="message" rows="5" required></textarea>
+                                </div>
+                                <button type="submit" class="btn">Kirim Pesan</button>
+                            </form>
+                        </div>
+                        
+                        <!-- Kolom Info & Peta -->
+                        <div class="contact-info">
+                            <h3>Informasi Kontak</h3>
+                            <p>Hubungi kami melalui detail di bawah ini atau kunjungi kantor kami.</p>
+                            
+                            <div class="info-item">
+                                <span class="icon">📍</span>
+                                <div>
+                                    <h5>Lokasi</h5>
+                                    <p>Jl. Inovasi Teknologi No. 1, Surabaya, Jawa Timur, 60111</p>
+                                </div>
+                            </div>
+                            <div class="info-item">
+                                <span class="icon">📧</span>
+                                <div>
+                                    <h5>Email</h5>
+                                    <p>hello@wanigo.id</p>
+                                </div>
+                            </div>
+                            <div class="info-item">
+                                <span class="icon">📞</span>
+                                <div>
+                                    <h5>Telepon</h5>
+                                    <p>+62 812 3456 7890</p>
+                                </div>
+                            </div>
+                            
+                            <div class="map-placeholder">
+                                Placeholder Peta (Google Maps)
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            `;
+
+
+            // === FUNGSI RENDER HALAMAN (SPA LOGIC) ===
+            function renderPage(pageName) {
+                let templateToRender = '';
+                
+                // Mekanisme Switch-Case untuk memilih template
+                switch(pageName) {
+                    case 'home':
+                        templateToRender = homeTemplate;
+                        break;
+                    case 'about':
+                        templateToRender = aboutTemplate;
+                        break;
+                    case 'members':
+                        templateToRender = membersTemplate;
+                        break;
+                    case 'gallery':
+                        templateToRender = galleryTemplate;
+                        break;
+                    case 'contacts':
+                        templateToRender = contactsTemplate;
+                        break;
+                    default:
+                        templateToRender = homeTemplate; // Default ke home
+                        pageName = 'home'; // pastikan pageName konsisten
+                }
+                
+                // 1. Render HTML ke dalam <main>
+                pageContent.innerHTML = templateToRender;
+                window.scrollTo(0, 0); // Selalu scroll ke atas saat ganti halaman
+                
+                // 2. Update kelas 'active' di navigasi
+                updateActiveNav(pageName);
+                
+                // 3. Panggil fungsi JS spesifik untuk halaman yang baru di-render
+                // Ini penting agar event listener terpasang setelah elemen ada di DOM
+                if (pageName === 'home') {
+                    initHomePage();
+                } else if (pageName === 'about') {
+                    initAboutPage();
+                } else if (pageName === 'gallery') {
+                    initGalleryPage();
+                } else if (pageName === 'contacts') {
+                    initContactsPage();
+                }
+            }
+            
+            // === FUNGSI INISIALISASI SPESIFIK HALAMAN ===
+            
+            // --- JS Halaman HOME ---
+            function initHomePage() {
+                // 1. Partikel Mousemove di Hero
+                const hero = document.getElementById('hero');
+                if (!hero) return; // Guard clause
+                
+                hero.addEventListener('mousemove', (e) => {
+                    // Membuat partikel
+                    const particle = document.createElement('div');
+                    particle.className = 'particle';
+                    document.body.appendChild(particle);
+                    
+                    // Mengatur ukuran, posisi, dan gerakan acak
+                    const size = Math.random() * 8 + 2; // Ukuran 2px - 10px
+                    const x = e.clientX;
+                    const y = e.clientY + window.scrollY; // + scrollY agar posisi benar saat scroll
+                    
+                    particle.style.width = `${size}px`;
+                    particle.style.height = `${size}px`;
+                    particle.style.left = `${x}px`;
+                    particle.style.top = `${y}px`;
+                    
+                    // Gerakan acak setelah muncul
+                    const moveX = Math.random() * 20 - 10; // -10px s/d +10px
+                    const moveY = Math.random() * 20 - 10;
+                    
+                    // Trigger transisi
+                    setTimeout(() => {
+                        particle.style.opacity = '1';
+                        particle.style.transform = `translate(${moveX}px, ${moveY}px)`;
+                    }, 10);
+                    
+                    // Menghapus partikel setelah animasi selesai
+                    setTimeout(() => {
+                        particle.style.opacity = '0';
+                        particle.style.transform = `translate(${moveX * 2}px, ${moveY * 2}px)`;
+                        setTimeout(() => particle.remove(), 500); // Hapus dari DOM
+                    }, 400);
+                });
+                
+                // 2. Event listener untuk tombol CTA
+                const ctaButton = document.getElementById('hero-cta-btn');
+                if (ctaButton) {
+                    ctaButton.addEventListener('click', (e) => {
+                        e.preventDefault();
+                        renderPage('about'); // Pindah ke halaman About Us
+                    });
+                }
+            }
+            
+            // --- JS Halaman ABOUT US ---
+            function initAboutPage() {
+                // Efek Counter-Up
+                const counters = document.querySelectorAll('.counter');
+                const speed = 200; // Kecepatan (makin kecil makin cepat)
+
+                const animateCounter = (counter) => {
+                    const target = +counter.getAttribute('data-target'); // Ambil nilai target
+                    
+                    const updateCount = () => {
+                        const count = +counter.innerText;
+                        const increment = target / speed; // Peningkatan per frame
+
+                        if (count < target) {
+                            counter.innerText = Math.ceil(count + increment);
+                            setTimeout(updateCount, 1); // Panggil frame berikutnya
+                        } else {
+                            counter.innerText = target; // Pastikan nilai akhir sesuai
+                        }
+                    };
+                    updateCount();
+                };
+
+                // Menggunakan Intersection Observer agar animasi berjalan saat di-scroll
+                const observer = new IntersectionObserver((entries, observer) => {
+                    entries.forEach(entry => {
+                        if (entry.isIntersecting) {
+                            animateCounter(entry.target);
+                            observer.unobserve(entry.target); // Hanya jalankan sekali
+                        }
+                    });
+                }, { threshold: 0.5 }); // Trigger saat 50% elemen terlihat
+
+                counters.forEach(counter => {
+                    observer.observe(counter);
+                });
+            }
+            
+            // --- JS Halaman GALLERY ---
+            function initGalleryPage() {
+                const filterContainer = document.getElementById('gallery-filters');
+                const galleryItems = document.querySelectorAll('#gallery-grid .gallery-item');
+                const lightbox = document.getElementById('gallery-lightbox');
+                const lightboxImg = document.getElementById('lightbox-img');
+                const lightboxTitle = document.getElementById('lightbox-title');
+                const lightboxDesc = document.getElementById('lightbox-desc');
+                const lightboxClose = document.getElementById('lightbox-close');
+
+                if (!filterContainer) return; // Guard clause
+
+                // 1. Logika Filter
+                filterContainer.addEventListener('click', (e) => {
+                    if (e.target.classList.contains('filter-btn')) {
+                        // Update tombol aktif
+                        filterContainer.querySelector('.active').classList.remove('active');
+                        e.target.classList.add('active');
+                        
+                        const filterValue = e.target.getAttribute('data-filter');
+                        
+                        // Tampilkan/sembunyikan item galeri
+                        galleryItems.forEach(item => {
+                            if (filterValue === 'all' || item.getAttribute('data-category') === filterValue) {
+                                item.style.display = 'block';
+                            } else {
+                                item.style.display = 'none';
+                            }
+                        });
+                    }
+                });
+
+                // 2. Logika Lightbox (Open)
+                galleryItems.forEach(item => {
+                    item.addEventListener('click', () => {
+                        // Ambil data dari atribut data-*
+                        const img = item.getAttribute('data-img');
+                        const title = item.getAttribute('data-title');
+                        const desc = item.getAttribute('data-desc');
+                        
+                        // Set konten lightbox
+                        lightboxImg.src = img;
+                        lightboxTitle.innerText = title;
+                        lightboxDesc.innerText = desc;
+                        
+                        // Tampilkan lightbox
+                        lightbox.classList.add('show');
+                    });
+                });
+                
+                // 3. Logika Lightbox (Close)
+                const closeLightbox = () => {
+                    lightbox.classList.remove('show');
+                };
+                
+                lightboxClose.addEventListener('click', closeLightbox);
+                lightbox.addEventListener('click', (e) => {
+                    // Tutup jika klik di area luar konten
+                    if (e.target === lightbox) {
+                        closeLightbox();
+                    }
+                });
+            }
+
+            // --- JS Halaman CONTACTS ---
+            function initContactsPage() {
+                const form = document.getElementById('main-contact-form');
+                if (!form) return;
+                
+                form.addEventListener('submit', (e) => {
+                    e.preventDefault();
+                    // Di aplikasi nyata, di sini akan ada logika pengiriman data
+                    // Untuk demo, kita tampilkan pesan sukses sederhana
+                    alert('Terima kasih! Pesan Anda telah terkirim (simulasi).');
+                    form.reset(); // Kosongkan form
+                });
+            }
+            
+            // === FUNGSI HELPERS ===
+            
+            // Helper untuk update link nav aktif
+            function updateActiveNav(activePage) {
+                navLinks.forEach(link => {
+                    if (link.getAttribute('data-page') === activePage) {
+                        link.classList.add('active');
+                    } else {
+                        link.classList.remove('active');
+                    }
+                });
+            }
+            
+            // Helper untuk menutup mobile menu
+            function closeMobileMenu() {
+                mainNav.classList.remove('open');
+                menuToggle.classList.remove('open');
+            }
+
+            // === EVENT LISTENERS GLOBAL ===
+            
+            // 1. Event Listener untuk semua link navigasi
+            document.body.addEventListener('click', (e) => {
+                // Cek apakah yang diklik adalah .nav-link (delegasi event)
+                if (e.target.matches('.nav-link')) {
+                    e.preventDefault();
+                    const page = e.target.getAttribute('data-page');
+                    if (page) {
+                        renderPage(page);
+                        closeMobileMenu(); // Tutup menu (jika terbuka) saat link diklik
+                    }
+                }
+                // Cek untuk logo
+                if (e.target.matches('.logo')) {
+                    e.preventDefault();
+                    const page = e.target.getAttribute('data-page');
+                    if (page) {
+                        renderPage(page);
+                        closeMobileMenu();
+                    }
+                }
+            });
+
+            // 2. Event Listener untuk Hamburger Menu Toggle
+            menuToggle.addEventListener('click', () => {
+                mainNav.classList.toggle('open');
+                menuToggle.classList.toggle('open');
+            });
+            
+            // === INISIALISASI HALAMAN AWAL ===
+            // Render halaman 'home' saat DOM pertama kali dimuat
+            renderPage('home');
+
+        });
+    </script>
+
+</body>
 </html>
