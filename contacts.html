@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Contacts - WANIGO!</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="breadcrumbs">
+      <div class="container">Home / Contacts</div>
+    </div>
+
+    <section id="contact" class="container">
+      <div class="section-title">
+        <h2>Hubungi Kami</h2>
+        <p>Kami siap mendengar ide, pertanyaan, atau kolaborasi dari Anda.</p>
+      </div>
+
+      <div class="contact-layout">
+        <!-- Kolom Formulir -->
+        <div class="contact-form">
+          <h3>Kirim Pesan</h3>
+          <form id="main-contact-form">
+            <div class="form-group">
+              <label for="name">Nama Lengkap</label>
+              <input type="text" id="name" name="name" required />
+            </div>
+            <div class="form-group">
+              <label for="email">Email</label>
+              <input type="email" id="email" name="email" required />
+            </div>
+            <div class="form-group">
+              <label for="subject">Subjek</label>
+              <input type="text" id="subject" name="subject" required />
+            </div>
+            <div class="form-group">
+              <label for="message">Pesan Anda</label>
+              <textarea
+                id="message"
+                name="message"
+                rows="5"
+                required></textarea>
+            </div>
+            <button type="submit" class="btn">Kirim Pesan</button>
+          </form>
+        </div>
+
+        <!-- Kolom Info & Peta -->
+        <div class="contact-info">
+          <h3>Informasi Kontak</h3>
+          <p>
+            Hubungi kami melalui detail di bawah ini atau kunjungi kantor kami.
+          </p>
+
+          <div class="info-item">
+            <span class="icon">📍</span>
+            <div>
+              <h5>Lokasi</h5>
+              <p>Jl. Inovasi Teknologi No. 1, Surabaya, Jawa Timur, 60111</p>
+            </div>
+          </div>
+          <div class="info-item">
+            <span class="icon">📧</span>
+            <div>
+              <h5>Email</h5>
+              <p>hello@wanigo.id</p>
+            </div>
+          </div>
+          <div class="info-item">
+            <span class="icon">📞</span>
+            <div>
+              <h5>Telepon</h5>
+              <p>+62 812 3456 7890</p>
+            </div>
+          </div>
+
+          <div class="map-placeholder">Placeholder Peta (Google Maps)</div>
+        </div>
+      </div>
+    </section>
+  </body>
+</html>

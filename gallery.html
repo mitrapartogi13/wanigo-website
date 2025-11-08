@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Gallery - WANIGO!</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="breadcrumbs">
+      <div class="container">Home / Gallery</div>
+    </div>
+
+    <section id="gallery" class="container">
+      <div class="section-title">
+        <h2>Galeri Proyek</h2>
+        <p>Lihat lebih dekat solusi yang telah kami kembangkan.</p>
+      </div>
+
+      <!-- Filter Buttons -->
+      <div class="gallery-filters" id="gallery-filters">
+        <button class="filter-btn active" data-filter="all">Semua</button>
+        <button class="filter-btn" data-filter="web">Desain Web</button>
+        <button class="filter-btn" data-filter="mobile">Aplikasi Mobile</button>
+        <button class="filter-btn" data-filter="branding">Branding</button>
+      </div>
+
+      <!-- Gallery Grid -->
+      <div class="gallery-grid" id="gallery-grid">
+        <!-- Item 1 -->
+        <div
+          class="gallery-item"
+          data-category="mobile"
+          data-img="https://placehold.co/600x400/0097FF/FFFFFF?text=Aplikasi+Nasabah"
+          data-title="Aplikasi Mobile Nasabah"
+          data-desc="Desain UI/UX untuk aplikasi mobile nasabah, fokus pada kemudahan penggunaan.">
+          <img
+            src="https://placehold.co/400x300/0097FF/FFFFFF?text=Aplikasi+Nasabah"
+            alt="Proyek 1" />
+          <div class="gallery-item-info">
+            <h5>Aplikasi Mobile Nasabah</h5>
+            <p>Aplikasi Mobile</p>
+          </div>
+        </div>
+
+        <!-- Item 2 -->
+        <div
+          class="gallery-item"
+          data-category="web"
+          data-img="https://placehold.co/600x400/003CFF/FFFFFF?text=Dashboard+BSU"
+          data-title="Dashboard Admin Bank Sampah"
+          data-desc="Platform web komprehensif untuk manajemen operasional BSU.">
+          <img
+            src="https://placehold.co/400x300/003CFF/FFFFFF?text=Dashboard+BSU"
+            alt="Proyek 2" />
+          <div class="gallery-item-info">
+            <h5>Dashboard Admin BSU</h5>
+            <p>Desain Web</p>
+          </div>
+        </div>
+
+        <!-- Item 3 -->
+        <div
+          class="gallery-item"
+          data-category="branding"
+          data-img="https://placehold.co/600x400/1de9b6/FFFFFF?text=Branding+Kit"
+          data-title="Branding & Identitas Visual"
+          data-desc="Pengembangan identitas visual WANIGO! yang modern dan ramah lingkungan.">
+          <img
+            src="https://placehold.co/400x300/1de9b6/FFFFFF?text=Branding+Kit"
+            alt="Proyek 3" />
+          <div class="gallery-item-info">
+            <h5>Branding Kit WANIGO!</h5>
+            <p>Branding</p>
+          </div>
+        </div>
+
+        <!-- Item 4 -->
+        <div
+          class="gallery-item"
+          data-category="mobile"
+          data-img="https://placehold.co/600x400/ff9800/FFFFFF?text=Aplikasi+Kurir"
+          data-title="Aplikasi Mobile Kurir"
+          data-desc="Aplikasi khusus kurir dengan fitur optimasi rute dan bukti penjemputan.">
+          <img
+            src="https://placehold.co/400x300/ff9800/FFFFFF?text=Aplikasi+Kurir"
+            alt="Proyek 4" />
+          <div class="gallery-item-info">
+            <h5>Aplikasi Mobile Kurir</h5>
+            <p>Aplikasi Mobile</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Lightbox (Modal) untuk Galeri -->
+    <div class="lightbox" id="gallery-lightbox">
+      <div class="lightbox-content">
+        <span class="lightbox-close" id="lightbox-close">&times;</span>
+        <img id="lightbox-img" src="" alt="" />
+        <h3 id="lightbox-title"></h3>
+        <p id="lightbox-desc"></p>
+      </div>
+    </div>
+  </body>
+</html>
