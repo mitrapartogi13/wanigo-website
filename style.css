@@ -146,13 +146,24 @@ section {
   letter-spacing: -1px;
   color: var(--light-text);
   /* Placeholder styling */
-  width: 120px;
+  width: 70px;
   height: 50px;
   display: flex;
   align-items: center;
   justify-content: center;
-  border: 2px dashed var(--light-text);
-  border-radius: 8px;
+  /* border: 2px dashed var(--light-text);
+  border-radius: 8px; */
+}
+
+.logo-text {
+  width: 120px;
+  height: auto;
+}
+
+.logo-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 #main-nav ul {
