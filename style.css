@@ -512,7 +512,37 @@ kan foto hover di atas foto default */
 .team-card-info {
   padding: 1.5rem;
   text-align: center;
+  position: relative; /* Tambahkan ini agar overlay tetap bekerja */
+  z-index: 2; /* Pastikan info di atas overlay */
 }
+
+.team-card-socials {
+  display: flex;
+  justify-content: center;
+  gap: 1.25rem; /* Jarak antar ikon */
+  margin-top: 1rem; /* Jarak dari jabatan di atasnya */
+}
+
+.team-card-socials a {
+  display: inline-block;
+  transition: all 0.3s ease;
+}
+
+.team-card-socials a img {
+  /* width: auto; /* Ukuran ikon */
+  /* height: auto; */ */
+  /* opacity: 0.8; */
+  transition: all 0.3s ease;
+}
+
+.team-card-socials a:hover {
+  transform: scale(1.15); /* Efek hover pada ikon */
+}
+
+.team-card-socials a:hover img {
+  opacity: 1;
+}
+
 
 .team-card-info h4 {
   margin-bottom: 0.25rem;
@@ -526,28 +556,35 @@ kan foto hover di atas foto default */
 }
 
 /* Interaksi Hover Overlay */
+/* Interaksi Hover Overlay */
 .team-card-overlay {
   position: absolute;
   bottom: 0;
   left: 0;
   right: 0;
-  height: 100%; /* Mulai dari atas */
+  height: 0; /* Mulai dari bawah, dengan tinggi 0 */
   background: linear-gradient(to top, rgba(0, 60, 255, 0.8), rgba(0, 151, 255, 0.6));
   color: var(--light-text);
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: flex-end; /* Pindahkan konten ke bawah */
   align-items: center;
   gap: 1rem;
-  transform: translateY(100%); /* Mulai dari bawah */
-  transition: transform 0.4s ease-in-out;
+  /* transform: translateY(100%); Tidak perlu ini lagi karena height 0 */
+  transition: height 0.4s ease-in-out; /* Animasi tinggi */
   padding: 1rem;
+  overflow: hidden; /* Sembunyikan konten sampai overlay muncul */
+}
+
+.team-card:hover .team-card-overlay {
+  height: 100%; /* Overlay muncul dengan tinggi penuh */
 }
 
 .team-card-overlay-icons {
-  display: flex;
+  display: flex; /* Memastikan ikon horizontal */
   gap: 1.5rem;
   font-size: 1.8rem;
+  margin-bottom: 1rem; /* Tambahkan sedikit ruang dari bawah */
 }
 
 .team-card-overlay-icons a {
@@ -558,6 +595,7 @@ kan foto hover di atas foto default */
 .team-card-overlay-icons a:hover {
   transform: scale(1.2);
 }
+
 
 .team-card:hover .team-card-img {
   transform: scale(1.03); /* Zoom-in foto */
