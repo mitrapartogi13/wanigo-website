@@ -19,11 +19,13 @@
   <body>
     <header id="main-header">
       <div class="container">
-        <a href="index.html" class="logo">WANIGO!</a>
+        <a href="index.html" class="logo"
+          ><img src="images/logos/logo-wanigo.png" alt="" />!</a
+        >
 
         <nav id="main-nav">
           <ul>
-            <li><a href="home.html" class="nav-link active">Home</a></li>
+            <li><a href="index.html" class="nav-link active">Home</a></li>
             <li><a href="about.html" class="nav-link">About Us</a></li>
             <li><a href="members.html" class="nav-link">Members</a></li>
             <li><a href="gallery.html" class="nav-link">Gallery</a></li>
@@ -49,7 +51,9 @@
             Tangga/Perkantoran) secara on-demand, didukung oleh AI untuk
             optimalisasi rute dan prediksi volume sampah.
           </p>
-          <a href="about.html" class="btn" id="hero-cta-btn">Click to know more</a>
+          <a href="about.html" class="btn" id="hero-cta-btn"
+            >Click to know more</a
+          >
         </div>
       </section>
 
@@ -150,7 +154,7 @@
           <div class="footer-col">
             <h4>Navigasi</h4>
             <ul>
-              <li><a href="home.html">Home</a></li>
+              <li><a href="index.html">Home</a></li>
               <li><a href="about.html">About Us</a></li>
               <li><a href="members.html">Members</a></li>
               <li><a href="gallery.html">Gallery</a></li>
@@ -204,37 +208,37 @@
     </div>
 
     <script>
-      document.addEventListener('DOMContentLoaded', () => {
+      document.addEventListener("DOMContentLoaded", () => {
+        const mainNav = document.getElementById("main-nav");
+        const menuToggle = document.getElementById("menu-toggle");
 
-        const mainNav = document.getElementById('main-nav');
-        const menuToggle = document.getElementById('menu-toggle');
-        
         // 1. Event Listener untuk Hamburger Menu Toggle
-        menuToggle.addEventListener('click', () => {
-            mainNav.classList.toggle('open');
-            menuToggle.classList.toggle('open');
+        menuToggle.addEventListener("click", () => {
+          mainNav.classList.toggle("open");
+          menuToggle.classList.toggle("open");
         });
-        
-        // 2. Logika Penentuan Tautan Aktif
-        // Mendapatkan nama file saat ini (e.g., 'index.html' atau 'home.html')
-        const currentPath = window.location.pathname.split('/').pop();
-        const navLinks = document.querySelectorAll('#main-nav .nav-link');
-        
-        navLinks.forEach(link => {
-            link.classList.remove('active');
 
-            // Tentukan nama file dari href
-            const linkPath = link.getAttribute('href').split('/').pop();
-            
-            // Bandingkan untuk menandai link aktif
-            if (linkPath === currentPath || 
-                // Handle kasus: index.html dan home.html dianggap sebagai "Home"
-                (currentPath === 'index.html' && linkPath === 'home.html') ||
-                (currentPath === 'home.html' && linkPath === 'index.html') ||
-                (currentPath === '' && linkPath === 'home.html') // Jika URL root
-            ) {
-                link.classList.add('active');
-            }
+        // 2. Logika Penentuan Tautan Aktif
+        // Mendapatkan nama file saat ini (e.g., 'index.html' atau 'index.html')
+        const currentPath = window.location.pathname.split("/").pop();
+        const navLinks = document.querySelectorAll("#main-nav .nav-link");
+
+        navLinks.forEach((link) => {
+          link.classList.remove("active");
+
+          // Tentukan nama file dari href
+          const linkPath = link.getAttribute("href").split("/").pop();
+
+          // Bandingkan untuk menandai link aktif
+          if (
+            linkPath === currentPath ||
+            // Handle kasus: index.html dan index.html dianggap sebagai "Home"
+            (currentPath === "index.html" && linkPath === "index.html") ||
+            (currentPath === "index.html" && linkPath === "index.html") ||
+            (currentPath === "" && linkPath === "index.html") // Jika URL root
+          ) {
+            link.classList.add("active");
+          }
         });
       });
     </script>

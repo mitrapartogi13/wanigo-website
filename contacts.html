@@ -13,11 +13,13 @@
 
         <nav id="main-nav">
           <ul>
-            <li><a href="home.html" class="nav-link">Home</a></li>
+            <li><a href="index.html" class="nav-link">Home</a></li>
             <li><a href="about.html" class="nav-link">About Us</a></li>
             <li><a href="members.html" class="nav-link">Members</a></li>
             <li><a href="gallery.html" class="nav-link">Gallery</a></li>
-            <li><a href="contacts.html" class="nav-link active">Contacts</a></li>
+            <li>
+              <a href="contacts.html" class="nav-link active">Contacts</a>
+            </li>
           </ul>
         </nav>
 
@@ -71,7 +73,8 @@
           <div class="contact-info">
             <h3>Informasi Kontak</h3>
             <p>
-              Hubungi kami melalui detail di bawah ini atau kunjungi kantor kami.
+              Hubungi kami melalui detail di bawah ini atau kunjungi kantor
+              kami.
             </p>
 
             <div class="info-item">
@@ -115,7 +118,7 @@
           <div class="footer-col">
             <h4>Navigasi</h4>
             <ul>
-              <li><a href="home.html">Home</a></li>
+              <li><a href="index.html">Home</a></li>
               <li><a href="about.html">About Us</a></li>
               <li><a href="members.html">Members</a></li>
               <li><a href="gallery.html">Gallery</a></li>
@@ -157,41 +160,41 @@
     </footer>
 
     <script>
-      document.addEventListener('DOMContentLoaded', () => {
+      document.addEventListener("DOMContentLoaded", () => {
+        const mainNav = document.getElementById("main-nav");
+        const menuToggle = document.getElementById("menu-toggle");
 
-        const mainNav = document.getElementById('main-nav');
-        const menuToggle = document.getElementById('menu-toggle');
-        
         // 1. Event Listener untuk Hamburger Menu Toggle
-        menuToggle.addEventListener('click', () => {
-            mainNav.classList.toggle('open');
-            menuToggle.classList.toggle('open');
+        menuToggle.addEventListener("click", () => {
+          mainNav.classList.toggle("open");
+          menuToggle.classList.toggle("open");
         });
-        
+
         // 2. Logika Penentuan Tautan Aktif
-        const currentPath = window.location.pathname.split('/').pop();
-        const navLinks = document.querySelectorAll('#main-nav .nav-link');
-        
-        navLinks.forEach(link => {
-            link.classList.remove('active');
-            const linkPath = link.getAttribute('href').split('/').pop();
-            
-            if (linkPath === currentPath || 
-                (currentPath === 'index.html' && linkPath === 'home.html') ||
-                (currentPath === 'home.html' && linkPath === 'index.html') ||
-                (currentPath === '' && linkPath === 'home.html') 
-            ) {
-                link.classList.add('active');
-            }
+        const currentPath = window.location.pathname.split("/").pop();
+        const navLinks = document.querySelectorAll("#main-nav .nav-link");
+
+        navLinks.forEach((link) => {
+          link.classList.remove("active");
+          const linkPath = link.getAttribute("href").split("/").pop();
+
+          if (
+            linkPath === currentPath ||
+            (currentPath === "index.html" && linkPath === "index.html") ||
+            (currentPath === "index.html" && linkPath === "index.html") ||
+            (currentPath === "" && linkPath === "index.html")
+          ) {
+            link.classList.add("active");
+          }
         });
-        
+
         // 3. Logika Form Submission (Khusus Halaman Contacts)
         const form = document.getElementById("main-contact-form");
         if (form) {
           form.addEventListener("submit", (e) => {
-              e.preventDefault();
-              alert("Terima kasih! Pesan Anda telah terkirim (simulasi).");
-              form.reset(); 
+            e.preventDefault();
+            alert("Terima kasih! Pesan Anda telah terkirim (simulasi).");
+            form.reset();
           });
         }
       });

@@ -13,7 +13,7 @@
 
         <nav id="main-nav">
           <ul>
-            <li><a href="home.html" class="nav-link">Home</a></li>
+            <li><a href="index.html" class="nav-link">Home</a></li>
             <li><a href="about.html" class="nav-link">About Us</a></li>
             <li><a href="members.html" class="nav-link">Members</a></li>
             <li><a href="gallery.html" class="nav-link active">Gallery</a></li>
@@ -43,7 +43,9 @@
         <div class="gallery-filters" id="gallery-filters">
           <button class="filter-btn active" data-filter="all">Semua</button>
           <button class="filter-btn" data-filter="web">Desain Web</button>
-          <button class="filter-btn" data-filter="mobile">Aplikasi Mobile</button>
+          <button class="filter-btn" data-filter="mobile">
+            Aplikasi Mobile
+          </button>
           <button class="filter-btn" data-filter="branding">Branding</button>
         </div>
 
@@ -133,7 +135,7 @@
           <div class="footer-col">
             <h4>Navigasi</h4>
             <ul>
-              <li><a href="home.html">Home</a></li>
+              <li><a href="index.html">Home</a></li>
               <li><a href="about.html">About Us</a></li>
               <li><a href="members.html">Members</a></li>
               <li><a href="gallery.html">Gallery</a></li>
@@ -175,38 +177,38 @@
     </footer>
 
     <script>
-      document.addEventListener('DOMContentLoaded', () => {
+      document.addEventListener("DOMContentLoaded", () => {
+        const mainNav = document.getElementById("main-nav");
+        const menuToggle = document.getElementById("menu-toggle");
 
-        const mainNav = document.getElementById('main-nav');
-        const menuToggle = document.getElementById('menu-toggle');
-        
         // 1. Event Listener untuk Hamburger Menu Toggle
-        menuToggle.addEventListener('click', () => {
-            mainNav.classList.toggle('open');
-            menuToggle.classList.toggle('open');
+        menuToggle.addEventListener("click", () => {
+          mainNav.classList.toggle("open");
+          menuToggle.classList.toggle("open");
         });
-        
+
         // 2. Logika Penentuan Tautan Aktif
-        const currentPath = window.location.pathname.split('/').pop();
-        const navLinks = document.querySelectorAll('#main-nav .nav-link');
-        
-        navLinks.forEach(link => {
-            link.classList.remove('active');
-            const linkPath = link.getAttribute('href').split('/').pop();
-            
-            if (linkPath === currentPath || 
-                (currentPath === 'index.html' && linkPath === 'home.html') ||
-                (currentPath === 'home.html' && linkPath === 'index.html') ||
-                (currentPath === '' && linkPath === 'home.html') 
-            ) {
-                link.classList.add('active');
-            }
+        const currentPath = window.location.pathname.split("/").pop();
+        const navLinks = document.querySelectorAll("#main-nav .nav-link");
+
+        navLinks.forEach((link) => {
+          link.classList.remove("active");
+          const linkPath = link.getAttribute("href").split("/").pop();
+
+          if (
+            linkPath === currentPath ||
+            (currentPath === "index.html" && linkPath === "index.html") ||
+            (currentPath === "index.html" && linkPath === "index.html") ||
+            (currentPath === "" && linkPath === "index.html")
+          ) {
+            link.classList.add("active");
+          }
         });
 
         // 3. Logika Filter dan Lightbox (Khusus Halaman Gallery)
         const filterContainer = document.getElementById("gallery-filters");
         const galleryItems = document.querySelectorAll(
-            "#gallery-grid .gallery-item"
+          "#gallery-grid .gallery-item"
         );
         const lightbox = document.getElementById("gallery-lightbox");
         const lightboxImg = document.getElementById("lightbox-img");
@@ -215,55 +217,55 @@
         const lightboxClose = document.getElementById("lightbox-close");
 
         if (filterContainer) {
-            // Logika Filter
-            filterContainer.addEventListener("click", (e) => {
-                if (e.target.classList.contains("filter-btn")) {
-                    filterContainer
-                        .querySelector(".active")
-                        .classList.remove("active");
-                    e.target.classList.add("active");
+          // Logika Filter
+          filterContainer.addEventListener("click", (e) => {
+            if (e.target.classList.contains("filter-btn")) {
+              filterContainer
+                .querySelector(".active")
+                .classList.remove("active");
+              e.target.classList.add("active");
 
-                    const filterValue = e.target.getAttribute("data-filter");
+              const filterValue = e.target.getAttribute("data-filter");
 
-                    galleryItems.forEach((item) => {
-                        if (
-                            filterValue === "all" ||
-                            item.getAttribute("data-category") === filterValue
-                        ) {
-                            item.style.display = "block";
-                        } else {
-                            item.style.display = "none";
-                        }
-                    });
+              galleryItems.forEach((item) => {
+                if (
+                  filterValue === "all" ||
+                  item.getAttribute("data-category") === filterValue
+                ) {
+                  item.style.display = "block";
+                } else {
+                  item.style.display = "none";
                 }
+              });
+            }
+          });
+
+          // Logika Lightbox (Open)
+          galleryItems.forEach((item) => {
+            item.addEventListener("click", () => {
+              const img = item.getAttribute("data-img");
+              const title = item.getAttribute("data-title");
+              const desc = item.getAttribute("data-desc");
+
+              lightboxImg.src = img;
+              lightboxTitle.innerText = title;
+              lightboxDesc.innerText = desc;
+
+              lightbox.classList.add("show");
             });
+          });
 
-            // Logika Lightbox (Open)
-            galleryItems.forEach((item) => {
-                item.addEventListener("click", () => {
-                    const img = item.getAttribute("data-img");
-                    const title = item.getAttribute("data-title");
-                    const desc = item.getAttribute("data-desc");
+          // Logika Lightbox (Close)
+          const closeLightbox = () => {
+            lightbox.classList.remove("show");
+          };
 
-                    lightboxImg.src = img;
-                    lightboxTitle.innerText = title;
-                    lightboxDesc.innerText = desc;
-
-                    lightbox.classList.add("show");
-                });
-            });
-
-            // Logika Lightbox (Close)
-            const closeLightbox = () => {
-                lightbox.classList.remove("show");
-            };
-
-            lightboxClose.addEventListener("click", closeLightbox);
-            lightbox.addEventListener("click", (e) => {
-                if (e.target === lightbox) {
-                    closeLightbox();
-                }
-            });
+          lightboxClose.addEventListener("click", closeLightbox);
+          lightbox.addEventListener("click", (e) => {
+            if (e.target === lightbox) {
+              closeLightbox();
+            }
+          });
         }
       });
     </script>

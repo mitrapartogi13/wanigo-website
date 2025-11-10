@@ -13,7 +13,7 @@
 
         <nav id="main-nav">
           <ul>
-            <li><a href="home.html" class="nav-link">Home</a></li>
+            <li><a href="index.html" class="nav-link">Home</a></li>
             <li><a href="about.html" class="nav-link">About Us</a></li>
             <li><a href="members.html" class="nav-link active">Members</a></li>
             <li><a href="gallery.html" class="nav-link">Gallery</a></li>
@@ -45,9 +45,9 @@
               <img
                 src="https://placehold.co/400x450/e0e0e0/555555?text=Foto+CEO"
                 alt="Foto CEO Default"
-                class="team-card-img team-card-img-default" /> 
+                class="team-card-img team-card-img-default" />
               <img
-                src="https://placehold.co/400x450/0097FF/FFFFFF?text=Ahmad+Zulkifli"
+                src="images/foto-tim/fix akthar.png"
                 alt="Foto CEO Hover"
                 class="team-card-img team-card-img-hover" />
               <div class="team-card-overlay">
@@ -125,7 +125,7 @@
           <div class="footer-col">
             <h4>Navigasi</h4>
             <ul>
-              <li><a href="home.html">Home</a></li>
+              <li><a href="index.html">Home</a></li>
               <li><a href="about.html">About Us</a></li>
               <li><a href="members.html">Members</a></li>
               <li><a href="gallery.html">Gallery</a></li>
@@ -167,32 +167,32 @@
     </footer>
 
     <script>
-      document.addEventListener('DOMContentLoaded', () => {
+      document.addEventListener("DOMContentLoaded", () => {
+        const mainNav = document.getElementById("main-nav");
+        const menuToggle = document.getElementById("menu-toggle");
 
-        const mainNav = document.getElementById('main-nav');
-        const menuToggle = document.getElementById('menu-toggle');
-        
         // 1. Event Listener untuk Hamburger Menu Toggle
-        menuToggle.addEventListener('click', () => {
-            mainNav.classList.toggle('open');
-            menuToggle.classList.toggle('open');
+        menuToggle.addEventListener("click", () => {
+          mainNav.classList.toggle("open");
+          menuToggle.classList.toggle("open");
         });
-        
+
         // 2. Logika Penentuan Tautan Aktif
-        const currentPath = window.location.pathname.split('/').pop();
-        const navLinks = document.querySelectorAll('#main-nav .nav-link');
-        
-        navLinks.forEach(link => {
-            link.classList.remove('active');
-            const linkPath = link.getAttribute('href').split('/').pop();
-            
-            if (linkPath === currentPath || 
-                (currentPath === 'index.html' && linkPath === 'home.html') ||
-                (currentPath === 'home.html' && linkPath === 'index.html') ||
-                (currentPath === '' && linkPath === 'home.html') 
-            ) {
-                link.classList.add('active');
-            }
+        const currentPath = window.location.pathname.split("/").pop();
+        const navLinks = document.querySelectorAll("#main-nav .nav-link");
+
+        navLinks.forEach((link) => {
+          link.classList.remove("active");
+          const linkPath = link.getAttribute("href").split("/").pop();
+
+          if (
+            linkPath === currentPath ||
+            (currentPath === "index.html" && linkPath === "index.html") ||
+            (currentPath === "index.html" && linkPath === "index.html") ||
+            (currentPath === "" && linkPath === "index.html")
+          ) {
+            link.classList.add("active");
+          }
         });
       });
     </script>
