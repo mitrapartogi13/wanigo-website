@@ -7,93 +7,110 @@
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
-    <div class="breadcrumbs">
-      <div class="container">Home / Gallery</div>
-    </div>
+    <header id="main-header">
+      <div class="container">
+        <a href="index.html" class="logo">WANIGO!</a>
 
-    <section id="gallery" class="container">
-      <div class="section-title">
-        <h2>Galeri Proyek</h2>
-        <p>Lihat lebih dekat solusi yang telah kami kembangkan.</p>
-      </div>
+        <nav id="main-nav">
+          <ul>
+            <li><a href="home.html" class="nav-link">Home</a></li>
+            <li><a href="about.html" class="nav-link">About Us</a></li>
+            <li><a href="members.html" class="nav-link">Members</a></li>
+            <li><a href="gallery.html" class="nav-link active">Gallery</a></li>
+            <li><a href="contacts.html" class="nav-link">Contacts</a></li>
+          </ul>
+        </nav>
 
-      <!-- Filter Buttons -->
-      <div class="gallery-filters" id="gallery-filters">
-        <button class="filter-btn active" data-filter="all">Semua</button>
-        <button class="filter-btn" data-filter="web">Desain Web</button>
-        <button class="filter-btn" data-filter="mobile">Aplikasi Mobile</button>
-        <button class="filter-btn" data-filter="branding">Branding</button>
-      </div>
-
-      <!-- Gallery Grid -->
-      <div class="gallery-grid" id="gallery-grid">
-        <!-- Item 1 -->
-        <div
-          class="gallery-item"
-          data-category="mobile"
-          data-img="https://placehold.co/600x400/0097FF/FFFFFF?text=Aplikasi+Nasabah"
-          data-title="Aplikasi Mobile Nasabah"
-          data-desc="Desain UI/UX untuk aplikasi mobile nasabah, fokus pada kemudahan penggunaan.">
-          <img
-            src="https://placehold.co/400x300/0097FF/FFFFFF?text=Aplikasi+Nasabah"
-            alt="Proyek 1" />
-          <div class="gallery-item-info">
-            <h5>Aplikasi Mobile Nasabah</h5>
-            <p>Aplikasi Mobile</p>
-          </div>
-        </div>
-
-        <!-- Item 2 -->
-        <div
-          class="gallery-item"
-          data-category="web"
-          data-img="https://placehold.co/600x400/003CFF/FFFFFF?text=Dashboard+BSU"
-          data-title="Dashboard Admin Bank Sampah"
-          data-desc="Platform web komprehensif untuk manajemen operasional BSU.">
-          <img
-            src="https://placehold.co/400x300/003CFF/FFFFFF?text=Dashboard+BSU"
-            alt="Proyek 2" />
-          <div class="gallery-item-info">
-            <h5>Dashboard Admin BSU</h5>
-            <p>Desain Web</p>
-          </div>
-        </div>
-
-        <!-- Item 3 -->
-        <div
-          class="gallery-item"
-          data-category="branding"
-          data-img="https://placehold.co/600x400/1de9b6/FFFFFF?text=Branding+Kit"
-          data-title="Branding & Identitas Visual"
-          data-desc="Pengembangan identitas visual WANIGO! yang modern dan ramah lingkungan.">
-          <img
-            src="https://placehold.co/400x300/1de9b6/FFFFFF?text=Branding+Kit"
-            alt="Proyek 3" />
-          <div class="gallery-item-info">
-            <h5>Branding Kit WANIGO!</h5>
-            <p>Branding</p>
-          </div>
-        </div>
-
-        <!-- Item 4 -->
-        <div
-          class="gallery-item"
-          data-category="mobile"
-          data-img="https://placehold.co/600x400/ff9800/FFFFFF?text=Aplikasi+Kurir"
-          data-title="Aplikasi Mobile Kurir"
-          data-desc="Aplikasi khusus kurir dengan fitur optimasi rute dan bukti penjemputan.">
-          <img
-            src="https://placehold.co/400x300/ff9800/FFFFFF?text=Aplikasi+Kurir"
-            alt="Proyek 4" />
-          <div class="gallery-item-info">
-            <h5>Aplikasi Mobile Kurir</h5>
-            <p>Aplikasi Mobile</p>
-          </div>
+        <div id="menu-toggle">
+          <div class="bar"></div>
+          <div class="bar"></div>
+          <div class="bar"></div>
         </div>
       </div>
-    </section>
+    </header>
 
-    <!-- Lightbox (Modal) untuk Galeri -->
+    <main id="page-content">
+      <div class="breadcrumbs">
+        <div class="container">Home / Gallery</div>
+      </div>
+
+      <section id="gallery" class="container">
+        <div class="section-title">
+          <h2>Galeri Proyek</h2>
+          <p>Lihat lebih dekat solusi yang telah kami kembangkan.</p>
+        </div>
+
+        <div class="gallery-filters" id="gallery-filters">
+          <button class="filter-btn active" data-filter="all">Semua</button>
+          <button class="filter-btn" data-filter="web">Desain Web</button>
+          <button class="filter-btn" data-filter="mobile">Aplikasi Mobile</button>
+          <button class="filter-btn" data-filter="branding">Branding</button>
+        </div>
+
+        <div class="gallery-grid" id="gallery-grid">
+          <div
+            class="gallery-item"
+            data-category="mobile"
+            data-img="https://placehold.co/600x400/0097FF/FFFFFF?text=Aplikasi+Nasabah"
+            data-title="Aplikasi Mobile Nasabah"
+            data-desc="Desain UI/UX untuk aplikasi mobile nasabah, fokus pada kemudahan penggunaan.">
+            <img
+              src="https://placehold.co/400x300/0097FF/FFFFFF?text=Aplikasi+Nasabah"
+              alt="Proyek 1" />
+            <div class="gallery-item-info">
+              <h5>Aplikasi Mobile Nasabah</h5>
+              <p>Aplikasi Mobile</p>
+            </div>
+          </div>
+
+          <div
+            class="gallery-item"
+            data-category="web"
+            data-img="https://placehold.co/600x400/003CFF/FFFFFF?text=Dashboard+BSU"
+            data-title="Dashboard Admin Bank Sampah"
+            data-desc="Platform web komprehensif untuk manajemen operasional BSU.">
+            <img
+              src="https://placehold.co/400x300/003CFF/FFFFFF?text=Dashboard+BSU"
+              alt="Proyek 2" />
+            <div class="gallery-item-info">
+              <h5>Dashboard Admin BSU</h5>
+              <p>Desain Web</p>
+            </div>
+          </div>
+
+          <div
+            class="gallery-item"
+            data-category="branding"
+            data-img="https://placehold.co/600x400/1de9b6/FFFFFF?text=Branding+Kit"
+            data-title="Branding & Identitas Visual"
+            data-desc="Pengembangan identitas visual WANIGO! yang modern dan ramah lingkungan.">
+            <img
+              src="https://placehold.co/400x300/1de9b6/FFFFFF?text=Branding+Kit"
+              alt="Proyek 3" />
+            <div class="gallery-item-info">
+              <h5>Branding Kit WANIGO!</h5>
+              <p>Branding</p>
+            </div>
+          </div>
+
+          <div
+            class="gallery-item"
+            data-category="mobile"
+            data-img="https://placehold.co/600x400/ff9800/FFFFFF?text=Aplikasi+Kurir"
+            data-title="Aplikasi Mobile Kurir"
+            data-desc="Aplikasi khusus kurir dengan fitur optimasi rute dan bukti penjemputan.">
+            <img
+              src="https://placehold.co/400x300/ff9800/FFFFFF?text=Aplikasi+Kurir"
+              alt="Proyek 4" />
+            <div class="gallery-item-info">
+              <h5>Aplikasi Mobile Kurir</h5>
+              <p>Aplikasi Mobile</p>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
     <div class="lightbox" id="gallery-lightbox">
       <div class="lightbox-content">
         <span class="lightbox-close" id="lightbox-close">&times;</span>
@@ -102,5 +119,153 @@
         <p id="lightbox-desc"></p>
       </div>
     </div>
+
+    <footer id="main-footer">
+      <div class="container">
+        <div class="footer-grid">
+          <div class="footer-col">
+            <h3 class="logo-footer">WANIGO!</h3>
+            <p>
+              Solusi Bank Sampah Digital Inovatif untuk masa depan yang lebih
+              hijau.
+            </p>
+          </div>
+          <div class="footer-col">
+            <h4>Navigasi</h4>
+            <ul>
+              <li><a href="home.html">Home</a></li>
+              <li><a href="about.html">About Us</a></li>
+              <li><a href="members.html">Members</a></li>
+              <li><a href="gallery.html">Gallery</a></li>
+              <li><a href="contacts.html">Contacts</a></li>
+            </ul>
+          </div>
+          <div class="footer-col">
+            <h4>Kontak Kami</h4>
+            <ul>
+              <li class="contact-item">
+                <span class="icon">📧</span>
+                <span>info@wanigo.id</span>
+              </li>
+              <li class="contact-item">
+                <span class="icon">📞</span>
+                <span>+62 812 3456 7890</span>
+              </li>
+              <li class="contact-item">
+                <span class="icon">📍</span>
+                <span>Jl. Inovasi No. 1, Surabaya, Indonesia</span>
+              </li>
+            </ul>
+          </div>
+          <div class="footer-col">
+            <h4>Ikuti Kami</h4>
+            <p>Dapatkan update terbaru dari kami.</p>
+            <div class="social-icons">
+              <a href="#" title="Facebook">FB</a>
+              <a href="#" title="Twitter">TW</a>
+              <a href="#" title="Instagram">IG</a>
+              <a href="#" title="LinkedIn">IN</a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>Copyright &copy; 2025 WANIGO!. All Rights Reserved.</p>
+      </div>
+    </footer>
+
+    <script>
+      document.addEventListener('DOMContentLoaded', () => {
+
+        const mainNav = document.getElementById('main-nav');
+        const menuToggle = document.getElementById('menu-toggle');
+        
+        // 1. Event Listener untuk Hamburger Menu Toggle
+        menuToggle.addEventListener('click', () => {
+            mainNav.classList.toggle('open');
+            menuToggle.classList.toggle('open');
+        });
+        
+        // 2. Logika Penentuan Tautan Aktif
+        const currentPath = window.location.pathname.split('/').pop();
+        const navLinks = document.querySelectorAll('#main-nav .nav-link');
+        
+        navLinks.forEach(link => {
+            link.classList.remove('active');
+            const linkPath = link.getAttribute('href').split('/').pop();
+            
+            if (linkPath === currentPath || 
+                (currentPath === 'index.html' && linkPath === 'home.html') ||
+                (currentPath === 'home.html' && linkPath === 'index.html') ||
+                (currentPath === '' && linkPath === 'home.html') 
+            ) {
+                link.classList.add('active');
+            }
+        });
+
+        // 3. Logika Filter dan Lightbox (Khusus Halaman Gallery)
+        const filterContainer = document.getElementById("gallery-filters");
+        const galleryItems = document.querySelectorAll(
+            "#gallery-grid .gallery-item"
+        );
+        const lightbox = document.getElementById("gallery-lightbox");
+        const lightboxImg = document.getElementById("lightbox-img");
+        const lightboxTitle = document.getElementById("lightbox-title");
+        const lightboxDesc = document.getElementById("lightbox-desc");
+        const lightboxClose = document.getElementById("lightbox-close");
+
+        if (filterContainer) {
+            // Logika Filter
+            filterContainer.addEventListener("click", (e) => {
+                if (e.target.classList.contains("filter-btn")) {
+                    filterContainer
+                        .querySelector(".active")
+                        .classList.remove("active");
+                    e.target.classList.add("active");
+
+                    const filterValue = e.target.getAttribute("data-filter");
+
+                    galleryItems.forEach((item) => {
+                        if (
+                            filterValue === "all" ||
+                            item.getAttribute("data-category") === filterValue
+                        ) {
+                            item.style.display = "block";
+                        } else {
+                            item.style.display = "none";
+                        }
+                    });
+                }
+            });
+
+            // Logika Lightbox (Open)
+            galleryItems.forEach((item) => {
+                item.addEventListener("click", () => {
+                    const img = item.getAttribute("data-img");
+                    const title = item.getAttribute("data-title");
+                    const desc = item.getAttribute("data-desc");
+
+                    lightboxImg.src = img;
+                    lightboxTitle.innerText = title;
+                    lightboxDesc.innerText = desc;
+
+                    lightbox.classList.add("show");
+                });
+            });
+
+            // Logika Lightbox (Close)
+            const closeLightbox = () => {
+                lightbox.classList.remove("show");
+            };
+
+            lightboxClose.addEventListener("click", closeLightbox);
+            lightbox.addEventListener("click", (e) => {
+                if (e.target === lightbox) {
+                    closeLightbox();
+                }
+            });
+        }
+      });
+    </script>
   </body>
 </html>

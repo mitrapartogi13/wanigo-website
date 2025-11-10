@@ -7,67 +7,210 @@
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
-    <div class="breadcrumbs">
-      <div class="container">Home / About Us</div>
-    </div>
-
-    <!-- 1. Visi & Misi -->
-    <section id="about-vision-mission">
+    <header id="main-header">
       <div class="container">
-        <div class="vision-mission-layout">
-          <div class="vision-content">
-            <h3>Visi Kami</h3>
+        <a href="index.html" class="logo">WANIGO!</a>
+
+        <nav id="main-nav">
+          <ul>
+            <li><a href="home.html" class="nav-link">Home</a></li>
+            <li><a href="about.html" class="nav-link active">About Us</a></li>
+            <li><a href="members.html" class="nav-link">Members</a></li>
+            <li><a href="gallery.html" class="nav-link">Gallery</a></li>
+            <li><a href="contacts.html" class="nav-link">Contacts</a></li>
+          </ul>
+        </nav>
+
+        <div id="menu-toggle">
+          <div class="bar"></div>
+          <div class="bar"></div>
+          <div class="bar"></div>
+        </div>
+      </div>
+    </header>
+
+    <main id="page-content">
+      <div class="breadcrumbs">
+        <div class="container">Home / About Us</div>
+      </div>
+
+      <section id="about-vision-mission">
+        <div class="container">
+          <div class="vision-mission-layout">
+            <div class="vision-content">
+              <h3>Visi Kami</h3>
+              <p>
+                Menjadi platform digital terdepan dalam pengelolaan sampah
+                berkelanjutan di Indonesia, menciptakan ekosistem ekonomi
+                sirkular yang inklusif dan berbasis teknologi.
+              </p>
+            </div>
+            <div class="mission-content">
+              <h3>Misi Kami</h3>
+              <ul>
+                <li>
+                  Memberikan kemudahan bagi masyarakat untuk berpartisipasi dalam
+                  pemilahan sampah.
+                </li>
+                <li>
+                  Mendigitalisasi dan mengoptimalkan operasional Bank Sampah Unit
+                  (BSU).
+                </li>
+                <li>
+                  Menerapkan teknologi AI untuk efisiensi logistik dan prediksi
+                  data.
+                </li>
+                <li>
+                  Membangun kemitraan strategis untuk memperkuat rantai pasok
+                  daur ulang.
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="stats" class="container">
+        <div class="section-title">
+          <h2>Pencapaian Kami</h2>
+          <p>Angka-angka yang mendorong kami untuk terus berinovasi.</p>
+        </div>
+        <div class="stats-grid">
+          <div class="stat-item">
+            <h3 class="counter" data-target="100">0</h3>
+            <p>Bank Sampah Mitra</p>
+          </div>
+          <div class="stat-item">
+            <h3 class="counter" data-target="50">0</h3>
+            <p>Kecamatan Terjangkau</p>
+          </div>
+          <div class="stat-item">
+            <h3 class="counter" data-target="10">0</h3>
+            <p>Ton Sampah Terkelola</p>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer id="main-footer">
+      <div class="container">
+        <div class="footer-grid">
+          <div class="footer-col">
+            <h3 class="logo-footer">WANIGO!</h3>
             <p>
-              Menjadi platform digital terdepan dalam pengelolaan sampah
-              berkelanjutan di Indonesia, menciptakan ekosistem ekonomi sirkular
-              yang inklusif dan berbasis teknologi.
+              Solusi Bank Sampah Digital Inovatif untuk masa depan yang lebih
+              hijau.
             </p>
           </div>
-          <div class="mission-content">
-            <h3>Misi Kami</h3>
+          <div class="footer-col">
+            <h4>Navigasi</h4>
             <ul>
-              <li>
-                Memberikan kemudahan bagi masyarakat untuk berpartisipasi dalam
-                pemilahan sampah.
+              <li><a href="home.html">Home</a></li>
+              <li><a href="about.html">About Us</a></li>
+              <li><a href="members.html">Members</a></li>
+              <li><a href="gallery.html">Gallery</a></li>
+              <li><a href="contacts.html">Contacts</a></li>
+            </ul>
+          </div>
+          <div class="footer-col">
+            <h4>Kontak Kami</h4>
+            <ul>
+              <li class="contact-item">
+                <span class="icon">📧</span>
+                <span>info@wanigo.id</span>
               </li>
-              <li>
-                Mendigitalisasi dan mengoptimalkan operasional Bank Sampah Unit
-                (BSU).
+              <li class="contact-item">
+                <span class="icon">📞</span>
+                <span>+62 812 3456 7890</span>
               </li>
-              <li>
-                Menerapkan teknologi AI untuk efisiensi logistik dan prediksi
-                data.
-              </li>
-              <li>
-                Membangun kemitraan strategis untuk memperkuat rantai pasok daur
-                ulang.
+              <li class="contact-item">
+                <span class="icon">📍</span>
+                <span>Jl. Inovasi No. 1, Surabaya, Indonesia</span>
               </li>
             </ul>
           </div>
+          <div class="footer-col">
+            <h4>Ikuti Kami</h4>
+            <p>Dapatkan update terbaru dari kami.</p>
+            <div class="social-icons">
+              <a href="#" title="Facebook">FB</a>
+              <a href="#" title="Twitter">TW</a>
+              <a href="#" title="Instagram">IG</a>
+              <a href="#" title="LinkedIn">IN</a>
+            </div>
+          </div>
         </div>
       </div>
-    </section>
+      <div class="footer-bottom">
+        <p>Copyright &copy; 2025 WANIGO!. All Rights Reserved.</p>
+      </div>
+    </footer>
 
-    <!-- 2. Statistik (Counter) -->
-    <section id="stats" class="container">
-      <div class="section-title">
-        <h2>Pencapaian Kami</h2>
-        <p>Angka-angka yang mendorong kami untuk terus berinovasi.</p>
-      </div>
-      <div class="stats-grid">
-        <div class="stat-item">
-          <h3 class="counter" data-target="100">0</h3>
-          <p>Bank Sampah Mitra</p>
-        </div>
-        <div class="stat-item">
-          <h3 class="counter" data-target="50">0</h3>
-          <p>Kecamatan Terjangkau</p>
-        </div>
-        <div class="stat-item">
-          <h3 class="counter" data-target="10">0</h3>
-          <p>Ton Sampah Terkelola</p>
-        </div>
-      </div>
-    </section>
+    <script>
+      document.addEventListener('DOMContentLoaded', () => {
+
+        const mainNav = document.getElementById('main-nav');
+        const menuToggle = document.getElementById('menu-toggle');
+        
+        // 1. Event Listener untuk Hamburger Menu Toggle
+        menuToggle.addEventListener('click', () => {
+            mainNav.classList.toggle('open');
+            menuToggle.classList.toggle('open');
+        });
+        
+        // 2. Logika Penentuan Tautan Aktif
+        const currentPath = window.location.pathname.split('/').pop();
+        const navLinks = document.querySelectorAll('#main-nav .nav-link');
+        
+        navLinks.forEach(link => {
+            link.classList.remove('active');
+            const linkPath = link.getAttribute('href').split('/').pop();
+            
+            if (linkPath === currentPath || 
+                (currentPath === 'index.html' && linkPath === 'home.html') ||
+                (currentPath === 'home.html' && linkPath === 'index.html') ||
+                (currentPath === '' && linkPath === 'home.html') 
+            ) {
+                link.classList.add('active');
+            }
+        });
+
+        // 3. Logika Counter-Up (Khusus Halaman About Us)
+        const counters = document.querySelectorAll(".counter");
+        const speed = 200; 
+
+        const animateCounter = (counter) => {
+            const target = +counter.getAttribute("data-target"); 
+            const updateCount = () => {
+                const count = +counter.innerText;
+                const increment = target / speed; 
+
+                if (count < target) {
+                    counter.innerText = Math.ceil(count + increment);
+                    setTimeout(updateCount, 1);
+                } else {
+                    counter.innerText = target; 
+                }
+            };
+            updateCount();
+        };
+
+        const observer = new IntersectionObserver(
+            (entries, observer) => {
+                entries.forEach((entry) => {
+                    if (entry.isIntersecting) {
+                        animateCounter(entry.target);
+                        observer.unobserve(entry.target); 
+                    }
+                });
+            },
+            { threshold: 0.5 }
+        ); 
+        
+        counters.forEach((counter) => {
+            observer.observe(counter);
+        });
+      });
+    </script>
   </body>
 </html>
